@@ -1,2 +1,2 @@
-# ProgettoBD2
-Implementazione di analisi e visualizzazione sui dataset di Airbnb attraverso MongoDB
+# ItalyRents
+Implementazione di analisi e visualizzazioni sui dataset italiani di Airbnb usando MongoDB

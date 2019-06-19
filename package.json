@@ -1,0 +1,24 @@
+{
+  "name": "ItalyRents",
+  "version": "1.0.0",
+  "description": "Implementazione di analisi e visualizzazioni sui dataset italiani di Airbnb usando MongoDB",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EmanueleBasso/ItalyRents.git"
+  },
+  "author": "Emanuele Basso & Andrea Mogavero",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/EmanueleBasso/ItalyRents/issues"
+  },
+  "homepage": "https://github.com/EmanueleBasso/ItalyRents#readme",
+  "dependencies": {
+    "ejs": "^2.6.2",
+    "express": "^4.17.1",
+    "loglevel": "^1.6.3"
+  }
+}
