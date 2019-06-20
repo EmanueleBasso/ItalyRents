@@ -4,7 +4,7 @@
   "description": "Implementazione di analisi e visualizzazioni sui dataset italiani di Airbnb usando MongoDB",
   "main": "app.js",
   "scripts": {
-    "test": "node app.js"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
