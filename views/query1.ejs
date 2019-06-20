@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Chartjs - Sleek Admin Dashboard Template</title>
+  <title>Query 1</title>
 
   <!-- GOOGLE FONTS -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500|Poppins:400,500,600,700|Roboto:400,500" rel="stylesheet"/>
@@ -101,14 +101,14 @@
                         
                         
                           
-                            <li  class="active" >
+                            <li>
                               <a class="sidenav-item-link" href="chartjs.html">
                                 <span class="nav-text">ChartJS</span>
                                 
                               </a>
                             </li>
 							
-							<li>
+							<li  class="active" >
                               <a class="sidenav-item-link" href="query1.html">
                                 <span class="nav-text">Query1</span>
                                 
@@ -292,100 +292,77 @@
           </header>
 	  
         <div class="content-wrapper">
-          <div class="content">						<div class="row">
-							<div class="col-12">
-								<div class="card card-default">
-									<div class="card-header justify-content-center">
-										<h2 class="text-center">Simple Line Chart</h2>
-									</div>
-									<div class="card-body" style="height: 450px;">
-										<canvas id="linechart" class="chartjs"></canvas>
-									</div>
-								</div>
+          <div class="content">
+		  
+			<div class="row">
+				
+				<div class="col-12">
+					<div class="card card-default">
+							<div class="card-header card-header-border-bottom">
+								<h2>Inline Checkbox & Radio </h2>
 							</div>
-							<div class="col-12">
-								<div class="card card-default">
-									<div class="card-header justify-content-center">
-										<h2 class="text-center">Dual Line Chart</h2>
-									</div>
-									<div class="card-body" style="height: 300px;">
-										<canvas id="dual-line"></canvas>
-									</div>
-								</div>
-							</div>
-							<div class="col-12">
-								<div class="card card-default">
-									<div class="card-header justify-content-center">
-										<h2 class="text-center">Area Chart</h2>
-									</div>
-									<div class="card-body" style="height: 300px;">
-										<canvas id="area-chart"></canvas>
-									</div>
-								</div>
-							</div>
-							<div class="col-12">
-								<div class="card card-default pb-5">
-									<div class="card-header justify-content-center">
-										<h2 class="text-center">Bar Chart</h2>
-									</div>
-									<div class="card-body" style="height: 300px;">
-										<canvas id="bar3"></canvas>
-										<div id='customLegend' class='customLegend'></div>
-									</div>
-								</div>
-							</div>
-							<div class="col-12 col-lg-6">
-								<div class="card card-default">
-									<div class="card-header justify-content-center">
-										<h2 class="text-center">Product Line Chart</h2>
-									</div>
-									<div class="card-body">
-										<canvas id="activity"></canvas>
-									</div>
-								</div>
-							</div>
-							<div class="col-12 col-lg-6">
-								<div class="card card-default">
-									<div class="card-header justify-content-center">
-										<h2 class="text-center">Multiple Statistics</h2>
-									</div>
-									<div class="card-body" style="height: 380px;">
-										<canvas id="mstat"></canvas>
-									</div>
-								</div>
-							</div>
-							<div class="col-12 col-lg-6">
-								<div class="card card-default">
-									<div class="card-header justify-content-center">
-										<h2 class="text-center">Donut Chart</h2>
-									</div>
-									<div class="card-body" style="height: 400px;">
-										<canvas id="deviceChart"></canvas>
-									</div>
-								</div>
-							</div>
-							<div class="col-12 col-lg-6">
-								<div class="card card-default">
-									<div class="card-header justify-content-center">
-										<h2 class="text-center">Polar Chart</h2>
-									</div>
-									<div class="card-body" style="height: 400px;">
-										<canvas id="polar"></canvas>
-									</div>
-								</div>
-							</div>
-							<div class="col-12 col-lg-6">
-								<div class="card card-default">
-									<div class="card-header justify-content-center">
-										<h2 class="text-center">Radar Chart</h2>
-									</div>
-									<div class="card-body" style="height: 400px;">
-										<canvas id="radar"></canvas>
-									</div>
-								</div>
+							<div class="card-body">
+								<p class="text-dark font-weight-medium mb-3">Amenities</p>
+				
+								<ul class="list-unstyled list-inline">
+									<li class="d-inline-block mr-3">
+										<label class="control control-checkbox">Option 1
+											<input type="checkbox" checked="checked" />
+											<div class="control-indicator"></div>
+										</label>
+									</li>
+									<li class="d-inline-block mr-3">
+										<label class="control control-checkbox">Option 2
+											<input type="checkbox" />
+											<div class="control-indicator"></div>
+										</label>
+									</li>
+									<li class="d-inline-block">
+										<label class="control control-checkbox">Option 3
+											<input type="checkbox" disabled="disabled" />
+											<div class="control-indicator"></div>
+										</label>
+									</li>
+								</ul>
+								<label class="text-dark mb-2 mt-4 font-weight-medium d-inline-block mr-3" for="">Radios</label>
+								<ul class="list-unstyled list-inline">
+									<li class="d-inline-block mr-3">
+										<label class="control control-radio">Option 1
+											<input type="radio" name="option" checked="checked" />
+											<div class="control-indicator"></div>
+										</label>
+									</li>
+									<li class="d-inline-block mr-3">
+										<label class="control control-radio">Option 2
+											<input type="radio" name="option" />
+											<div class="control-indicator"></div>
+										</label>
+									</li>
+									<li class="d-inline-block">
+										<label class="control control-radio">Option 3
+											<input type="radio" name="option" disabled="disabled" />
+											<div class="control-indicator"></div>
+										</label>
+									</li>
+								</ul>
 							</div>
 						</div>
-</div>
+					</div>
+				</div>
+			
+				<div class="col-12">
+					<div class="card card-default pb-5">
+						<div class="card-header justify-content-center">
+							<h2 class="text-center">Bar Chart</h2>
+						</div>
+						<div class="card-body" style="height: 300px;">
+							<canvas id="bar3"></canvas>
+							<div id='customLegend' class='customLegend'></div>
+						</div>
+					</div>
+				</div>
+							
+			</div>
 
           
 
