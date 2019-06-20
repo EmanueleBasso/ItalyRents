@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>General Widgets - Sleek Admin Dashboard Template</title>
+  <title>Invoice - Sleek Admin Dashboard Template</title>
 
   <!-- GOOGLE FONTS -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500|Poppins:400,500,600,700|Roboto:400,500" rel="stylesheet"/>
@@ -19,7 +19,7 @@
   <link href="../styles/plugins/ladda/ladda.min.css" rel="stylesheet" />
   <link href="../styles/plugins/select2/select2.min.css" rel="stylesheet" />
   <link href="../styles/plugins/daterangepicker/daterangepicker.css" rel="stylesheet" />
-    
+  
   <!-- SLEEK CSS -->
   <link id="sleek-css" rel="stylesheet" href="../styles/css/sleek.css" />
 
@@ -132,13 +132,13 @@
                 
 
                 
-                  <li  class="has-sub active expand" >
+                  <li  class="has-sub" >
                     <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#ui-elements"
                       aria-expanded="false" aria-controls="ui-elements">
                       <i class="mdi mdi-folder-multiple-outline"></i>
                       <span class="nav-text">UI Elements</span> <b class="caret"></b>
                     </a>
-                    <ul  class="collapse show"  id="ui-elements"
+                    <ul  class="collapse"  id="ui-elements"
                       data-parent="#sidebar-menu">
                       <div class="sub-menu">
                         
@@ -319,19 +319,19 @@
 
                         
                         
-                        <li  class="has-sub active expand" >
+                        <li  class="has-sub" >
                           <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#widgets"
                             aria-expanded="false" aria-controls="widgets">
                             <span class="nav-text">Widgets</span> <b class="caret"></b>
                           </a>
-                          <ul  class="collapse show"  id="widgets">
+                          <ul  class="collapse"  id="widgets">
                             <div class="sub-menu">
                               
                               <li >
                                 <a href="general-widget.html">General Widget</a>
                               </li>
                               
-                              <li  class="active" >
+                              <li >
                                 <a href="chart-widget.html">Chart Widget</a>
                               </li>
                               
@@ -379,13 +379,13 @@
                 
 
                 
-                  <li  class="has-sub" >
+                  <li  class="has-sub active expand" >
                     <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#pages"
                       aria-expanded="false" aria-controls="pages">
                       <i class="mdi mdi-image-filter-none"></i>
                       <span class="nav-text">Pages</span> <b class="caret"></b>
                     </a>
-                    <ul  class="collapse"  id="pages"
+                    <ul  class="collapse show"  id="pages"
                       data-parent="#sidebar-menu">
                       <div class="sub-menu">
                         
@@ -425,15 +425,15 @@
 
                         
                         
-                        <li  class="has-sub" >
+                        <li  class="has-sub active expand" >
                           <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#others"
                             aria-expanded="false" aria-controls="others">
                             <span class="nav-text">Others</span> <b class="caret"></b>
                           </a>
-                          <ul  class="collapse"  id="others">
+                          <ul  class="collapse show"  id="others">
                             <div class="sub-menu">
                               
-                              <li >
+                              <li  class="active" >
                                 <a href="invoice.html">invoice</a>
                               </li>
                               
@@ -761,355 +761,108 @@
 
 
         <div class="content-wrapper">
-          <div class="content">						<!-- First Row  -->
-						<div class="row">
-							<div class="col-md-6 col-lg-4 col-xl-3">
-								<div class="widget-block rounded bg-white  d-flex">
-									<div class="widget-info align-self-center w-50">
-										<h3 class="text-dark mb-2">71,503</h3>
-										<p>Online Signups</p>
-									</div>
-									<div class="widget-chart w-50">
-										<canvas id="barChart1"></canvas>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-6 col-lg-4 col-xl-3">
-								<div class="widget-block rounded bg-white  d-flex">
-									<div class="widget-info align-self-center w-50">
-										<h3 class="text-dark mb-2">9,503</h3>
-										<p>Weekly Visitors</p>
-									</div>
-									<div class="widget-chart w-50">
-										<canvas id="linechart1"></canvas>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-6 col-lg-4 col-xl-3">
-								<div class="widget-block rounded bg-white  d-flex">
-									<div class="widget-info align-self-center w-50">
-										<h3 class="text-dark mb-2">71,503</h3>
-										<p>Weekly Total Order</p>
-									</div>
-									<div class="widget-chart w-50">
-										<canvas id="areaChart1"></canvas>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-6 col-lg-4 col-xl-3">
-								<div class="widget-block rounded bg-white  d-flex">
-									<div class="widget-info align-self-center w-50">
-										<h3 class="text-dark mb-2">10,503</h3>
-										<p>Revenue This Week</p>
-									</div>
-									<div class="widget-chart w-50">
-										<canvas id="gline1"></canvas>
-									</div>
-								</div>
+          <div class="content">					<div class="invoice-wrapper rounded border bg-white py-5 px-3 px-md-4 px-lg-5">
+						<div class="d-flex justify-content-between">
+							<h2 class="text-dark font-weight-medium">Invoice #2365546</h2>
+							<div class="btn-group">
+								<button class="btn btn-sm btn-secondary">
+									<i class="mdi mdi-content-save"></i> Save</button>
+								<button class="btn btn-sm btn-secondary">
+									<i class="mdi mdi-printer"></i> Print</button>
 							</div>
 						</div>
-						<!-- Second Row  -->
-						<div class="row">
-							<div class="col-md-6 col-lg-4 col-xl-3">
-								<div class="widget-block rounded bg-primary  d-flex">
-									<div class="widget-info align-self-center w-50">
-										<h3 class="text-white mb-2">71,503</h3>
-										<p>Online Signups</p>
-									</div>
-									<div class="widget-chart w-50">
-										<canvas id="barChart2"></canvas>
-									</div>
-								</div>
+						<div class="row pt-5">
+							<div class="col-xl-3 col-lg-4">
+								<p class="text-dark mb-2">From</p>
+								<address>
+									Company Name
+									<br> 47 Holmes Green, Sophiebury, WP9M 3ZZ
+									<br> Email: example@gmail.com
+									<br> Phone: +91 5264 251 325
+								</address>
 							</div>
-							<div class="col-md-6 col-lg-4 col-xl-3">
-								<div class="widget-block rounded bg-warning  d-flex">
-									<div class="widget-info align-self-center w-50">
-										<h3 class="text-white mb-2">9,503</h3>
-										<p>Weekly Visitors</p>
-									</div>
-									<div class="widget-chart w-50">
-										<canvas id="linechart2"></canvas>
-									</div>
-								</div>
+							<div class="col-xl-3 col-lg-4">
+								<p class="text-dark mb-2">To</p>
+								<address>
+									Company Name
+									<br> 58 Jamie Ways, North Faye, Q5 5ZP
+									<br> Email: example@gmail.com
+									<br> Phone: +91 5264 521 943
+								</address>
 							</div>
-							<div class="col-md-6 col-lg-4 col-xl-3">
-								<div class="widget-block rounded bg-danger  d-flex">
-									<div class="widget-info align-self-center w-50">
-										<h3 class="text-white mb-2">71,503</h3>
-										<p>Weekly Total Order</p>
-									</div>
-									<div class="widget-chart w-50">
-										<canvas id="areaChart2"></canvas>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-6 col-lg-4 col-xl-3">
-								<div class="widget-block rounded bg-success  d-flex">
-									<div class="widget-info align-self-center w-50">
-										<h3 class="text-white mb-2">10,503</h3>
-										<p>Revenue This Week</p>
-									</div>
-									<div class="widget-chart w-50">
-										<canvas id="gline2"></canvas>
-									</div>
-								</div>
+							<div class="col-xl-3 col-lg-4">
+								<p class="text-dark mb-2">Details</p>
+								<address>
+									Invoice ID:
+									<span class="text-dark">#2365546</span>
+									<br> March 25, 2018
+									<br> VAT: PL6541215450
+								</address>
 							</div>
 						</div>
-						<!-- Third Row  -->
-						<div class="row">
-							<div class="col-xl-3 col-sm-6">
-								<div class="card widget-block p-4 rounded bg-white ">
-									<div class="card-block">
-										<h3 class="text-dark">71,503</h3>
-										<p class="py-2">Online Signups</p>
-									</div>
-									<div class="chartjs-wrapper" style="height: 110px;">
-										<canvas id="barChart"></canvas>
-									</div>
-								</div>
-							</div>
-							<div class="col-xl-3 col-sm-6">
-								<div class="card widget-block p-4 rounded bg-white ">
-									<div class="card-block">
-										<h3 class="text-dark">9,503</h3>
-										<p class="py-2">New Visitors Today</p>
-									</div>
-									<div class="chartjs-wrapper" style="height: 110px;">
-										<canvas id="dual-line"></canvas>
-									</div>
-								</div>
-							</div>
-							<div class="col-xl-3 col-sm-6">
-								<div class="card widget-block p-4 rounded bg-white ">
-									<div class="card-block">
-										<h3 class="text-dark">71,503</h3>
-										<p class="py-2">Monthly Total Order</p>
-									</div>
-									<div class="chartjs-wrapper" style="height: 110px;">
-										<canvas id="area-chart"></canvas>
-									</div>
-								</div>
-							</div>
-							<div class="col-xl-3 col-sm-6">
-								<div class="card widget-block p-4 rounded bg-white ">
-									<div class="card-block">
-										<h3 class="text-dark">9,503</h3>
-										<p class="py-2">Total Revenue This Year</p>
-									</div>
-									<div class="chartjs-wrapper" style="height: 110px;">
-										<canvas id="line"></canvas>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- Fourth Row  -->
-						<div class="row">
-							<div class="col-xl-3 col-sm-6">
-								<div class="card widget-block p-4 rounded bg-primary ">
-									<div class="card-block">
-										<h3 class="text-white">71,503</h3>
-										<p class="py-2">Online Signups</p>
-									</div>
-									<div class="chartjs-wrapper" style="height: 110px;">
-										<canvas id="barChart3"></canvas>
-									</div>
-								</div>
-							</div>
-							<div class="col-xl-3 col-sm-6">
-								<div class="card widget-block p-4 rounded bg-warning ">
-									<div class="card-block">
-										<h3 class="text-white">9,503</h3>
-										<p class="py-2">New Visitors Today</p>
-									</div>
-									<div class="chartjs-wrapper" style="height: 110px;">
-										<canvas id="dual-line3"></canvas>
-									</div>
-								</div>
-							</div>
-							<div class="col-xl-3 col-sm-6">
-								<div class="card widget-block p-4 rounded bg-danger ">
-									<div class="card-block">
-										<h3 class="text-white">71,503</h3>
-										<p class="py-2">Monthly Total Order</p>
-									</div>
-									<div class="chartjs-wrapper" style="height: 110px;">
-										<canvas id="area-chart3"></canvas>
-									</div>
-								</div>
-							</div>
-							<div class="col-xl-3 col-sm-6">
-								<div class="card widget-block p-4 rounded bg-success ">
-									<div class="card-block">
-										<h3 class="text-white">9,503</h3>
-										<p class="py-2">Total Revenue This Year</p>
-									</div>
-									<div class="chartjs-wrapper" style="height: 110px;">
-										<canvas id="line3"></canvas>
-									</div>
-								</div>
+						<table class="table mt-3 table-striped table-responsive table-responsive-large" style="width:100%">
+							<thead>
+								<tr>
+									<th>#</th>
+									<th>Item</th>
+									<th>Description</th>
+									<th>Quantity</th>
+									<th>Unit Cost</th>
+									<th>Total</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>1</td>
+									<td>Platinum Support</td>
+									<td>1 year subcription 24/7</td>
+									<td>1</td>
+									<td>$3.999,00</td>
+									<td>$3.999,00</td>
+								</tr>
+								<tr>
+									<td>2</td>
+									<td>Custom Services</td>
+									<td>Instalation and Customization (cost per hour)</td>
+									<td>10</td>
+									<td>$250,00</td>
+									<td>$250,000</td>
+								</tr>
+								<tr>
+									<td>3</td>
+									<td>Origin License</td>
+									<td>Extended License</td>
+									<td>1</td>
+									<td>$799,00</td>
+									<td>$799,00</td>
+								</tr>
+								<tr>
+									<td>4</td>
+									<td>Hosting</td>
+									<td>1 year subcription</td>
+									<td>1</td>
+									<td>$599,00</td>
+									<td>$599,00</td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="row justify-content-end">
+							<div class="col-lg-5 col-xl-4 col-xl-3 ml-sm-auto">
+								<ul class="list-unstyled mt-4">
+									<li class="mid pb-3 text-dark"> Subtotal
+										<span class="d-inline-block float-right text-default">$7.897,00</span>
+									</li>
+									<li class="mid pb-3 text-dark">Vat(10%)
+										<span class="d-inline-block float-right text-default">$789,70</span>
+									</li>
+									<li class="pb-3 text-dark">Total
+										<span class="d-inline-block float-right">$8.686,70</span>
+									</li>
+								</ul>
+								<a href="#" class="btn btn-block mt-2 btn-lg btn-primary btn-pill"> Procced to Payment</a>
 							</div>
 						</div>
-						<!-- Fifth Row  -->
-						<div class="row">
-							<div class="col-xl-8 col-md-12">
-                      <!-- Sales Graph -->
-                      <div class="card card-default" data-scroll-height="675">
-                        <div class="card-header">
-                          <h2>Sales Of The Year</h2>
-                        </div>
-                        <div class="card-body">
-                          <canvas id="linechart" class="chartjs"></canvas>
-                        </div>
-                        <div class="card-footer d-flex flex-wrap bg-white p-0">
-                          <div class="col-6 px-0">
-                            <div class="text-center p-4">
-                              <h4>$6,308</h4>
-                              <p class="mt-2">Total orders of this year</p>
-                            </div>
-                          </div>
-                          <div class="col-6 px-0">
-                            <div class="text-center p-4 border-left">
-                              <h4>$70,506</h4>
-                              <p class="mt-2">Total revenue of this year</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-</div>
-							<div class="col-xl-4 col-md-12">
-                  <!-- Doughnut Chart -->
-                  <div class="card card-default" data-scroll-height="675">
-                    <div class="card-header justify-content-center">
-                      <h2>Orders Overview</h2>
-                    </div>
-                    <div class="card-body" >
-                      <canvas id="doChart" ></canvas>
-                    </div>
-                    <a href="#" class="pb-5 d-block text-center text-muted"><i class="mdi mdi-download mr-2"></i> Download overall report</a>
-                    <div class="card-footer d-flex flex-wrap bg-white p-0">
-                      <div class="col-6">
-                        <div class="py-4 px-4">
-                          <ul class="d-flex flex-column justify-content-between">
-                            <li class="mb-2"><i class="mdi mdi-checkbox-blank-circle-outline mr-2" style="color: #4c84ff"></i>Order Completed</li>
-                            <li><i class="mdi mdi-checkbox-blank-circle-outline mr-2" style="color: #80e1c1 "></i>Order Unpaid</li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div class="col-6 border-left">
-                        <div class="py-4 px-4 ">
-                          <ul class="d-flex flex-column justify-content-between">
-                            <li class="mb-2"><i class="mdi mdi-checkbox-blank-circle-outline mr-2" style="color: #8061ef"></i>Order Pending</li>
-                            <li><i class="mdi mdi-checkbox-blank-circle-outline mr-2" style="color: #ffa128"></i>Order Canceled</li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-</div>
-						</div>
-						<!-- Sixth Row  -->
-						<div class="row">
-							<div class="col-xl-4 col-md-12">
-								<div class="card card-default">
-									<div class="card-header justify-content-center">
-										<h2>Sale Overview</h2>
-									</div>
-									<div class="card-body pt-0" style="position: relative; height:50vh">
-										<canvas id="polar"></canvas>
-									</div>
-								</div>
-							</div>
-							<div class="col-xl-8 col-md-12">
-								<div class="card card-default" id="user-acquisition">
-									<div class="card-header justify-content-between pb-5">
-										<h2 class=" text-dark">User Acquisition</h2>
-									</div>
-									<div class="card-body pt-0 mb-5" style="position: relative; height:45vh">
-										<canvas id="acquisition" class="chartjs"></canvas>
-										<div id="acqLegend" class="customLegend"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- Seventh Row  -->
-						<div class="row">
-							<div class="col-xl-8">
-								<div class="card card-default" id="activity-user">
-									<div class="card-header d-flex flex-wrap justify-content-between">
-										<h2>User Activity</h2>
-										<div class="date-range-report ">
-											<span></span>
-										</div>
-									</div>
-									<div class="card-body">
-										<canvas id="activity" class="chartjs"></canvas>
-									</div>
-								</div>
-							</div>
-							<div class="col-xl-4">
-								<div class="card card-default" id="activity-user">
-									<div class="card-header">
-										<h2>Current Users</h2>
-									</div>
-									<div class="card-body">
-										<canvas id="currentUser" class="chartjs"></canvas>
-									</div>
-								</div>
-							</div>
-						</div>
-						
-						<!-- Recent Orders -->
-						<div class="row">
-							<div class="col-lg-6">               
-                          <!-- Sessions By device Chart -->
-                          <div class="card card-default" id="analytics-device" data-scroll-height="580">
-                            <div class="card-header justify-content-between">
-                              <h2>Sessions by Device</h2>
-                            </div>
-                            <div class="card-body">
-                              <div class="pb-5">
-                                <canvas id="deviceChart"></canvas>
-                              </div>
-                              <div class="row no-gutters justify-content-center">
-                                <div class="col-4 col-lg-3">
-                                  <div class="card card-icon-info text-center border-0">
-                                    <i class="mdi mdi-desktop-mac"></i>
-                                    <p class="pt-3 pb-1">Desktop</p>
-                                    <h4 class="text-dark pb-1">60.0%</h4>
-                                    <span class="text-danger">1.5% <i class="mdi mdi-arrow-down-bold"></i></span>
-                                  </div>
-                                </div>
-                                <div class="col-4 col-lg-3">
-                                  <div class="card card-icon-info text-center border-0">
-                                    <i class="mdi mdi-tablet-ipad"></i>
-                                    <p class="pt-3 pb-1">Tablet</p>
-                                    <h4 class="text-dark pb-1">15.0%</h4>
-                                    <span class="text-success">1.5% <i class="mdi mdi-arrow-up-bold"></i></span>
-                                  </div>
-                                </div>
-                                <div class="col-4 col-lg-3">
-                                  <div class="card card-icon-info text-center border-0">
-                                    <i class="mdi mdi-cellphone-android fa-3x"></i>
-                                    <p class="pt-3 pb-1">Mobile</p>
-                                    <h4 class="text-dark pb-1">25.0%</h4>
-                                    <span class="text-success">1.5% <i class="mdi mdi-arrow-up-bold"></i></span>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-</div>
-							<div class="col-lg-6">
-								<div class="card card-default" id="activity-user">
-									<div class="card-header">
-										<h2>Sale Overview</h2>
-									</div>
-									<div class="card-body">
-										<canvas id="radar"></canvas>
-									</div>
-								</div>
-							</div>
-						</div>
+					</div>
 </div>
 
           
