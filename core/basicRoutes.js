@@ -1,5 +1,9 @@
-exports.functionIndex = async function (req, res){
+exports.functionRentCount = async function (req, res){
     res.render('rentCount')
+}
+
+exports.functionRatingAnalyzer = async function (req, res){
+    res.render('ratingAnalyzer')
 }
 
 exports.functionBadRequest = async function (req, res){

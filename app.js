@@ -11,7 +11,11 @@ app.set('view engine', 'ejs')
 
 app.use(express.static('public'))
 
-app.get(config.basepath, basicRoutes.functionIndex)
+app.get(config.basepath, basicRoutes.functionRentCount)
+
+app.get(config.basepath + '/' + 'rentCount', basicRoutes.functionRentCount)
+
+app.get(config.basepath + '/' + 'ratingAnalyzer', basicRoutes.functionRatingAnalyzer)
 
 app.use(basicRoutes.functionInvalidPath)      // Default path
 
