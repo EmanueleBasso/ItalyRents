@@ -23,8 +23,12 @@
   <!-- SLEEK CSS -->
   <link id="sleek-css" rel="stylesheet" href="../styles/css/sleek.css" />
 
+  <!-- NOUISLIDER CSS -->
+  <link href="../styles/noUiSlider/nouislider.min.css" rel="stylesheet" />
+
   <!-- ITALYRENTS CSS -->
   <link href="../styles/italyrents-css/fixed_styles.css" rel="stylesheet" />
+  <link href="../styles/italyrents-css/slider.css" rel="stylesheet" />
   
 
   <!-- FAVICON -->
@@ -40,12 +44,19 @@
   <![endif]-->
   <script src="../scripts/plugins/nprogress/nprogress.js"></script>
 
+  <!-- NOUISLIDER JS -->
+  <script src="../scripts/wNumb/wNumb.js"></script>
+
+  <!-- NOUISLIDER JS -->
+  <script src="../scripts/noUiSlider/nouislider.min.js"></script>
+
  <!-- ITALYRENTS JS --> 
   <script src="../scripts/italyrents-js/select_all.js"></script>
+  <script src="../scripts/italyrents-js/sliders.js"></script>
 </head>
 
 
-  <body class="sidebar-fixed sidebar-dark" id="body">
+  <body class="sidebar-fixed sidebar-dark" id="body" onload="loadSliders()">
     <script>
       NProgress.configure({ showSpinner: false });
       NProgress.start();
@@ -102,7 +113,7 @@
                     </a>
                   </li>
                   <li  class="has-sub expand" >
-                    <a class="sidenav-item-link" href="#3">
+                    <a class="sidenav-item-link" href="ratingAnalyzer">
                       <i class="mdi mdi-chart-pie"></i>
                       <span class="nav-text">Rating Analyzer</span>
                     </a>
@@ -264,27 +275,9 @@
                                 </label>
                             </li>
                           </ul>
-                          <label class="text-dark mb-2 mt-4 font-weight-medium d-inline-block mr-3" for="">Number of Bathrooms</label>
-                          <ul class="list-unstyled list-inline">
-                            <li class="d-inline-block mr-3">
-                              <label class="control control-radio">Option 1
-                                <input type="radio" name="option" checked="checked" />
-                                <div class="control-indicator"></div>
-                              </label>
-                            </li>
-                            <li class="d-inline-block mr-3">
-                              <label class="control control-radio">Option 2
-                                <input type="radio" name="option" />
-                                <div class="control-indicator"></div>
-                              </label>
-                            </li>
-                            <li class="d-inline-block">
-                              <label class="control control-radio">Option 3
-                                <input type="radio" name="option" disabled="disabled" />
-                                <div class="control-indicator"></div>
-                              </label>
-                            </li>
-                          </ul>
+                          <br>
+                          <p class="text-dark font-weight-medium mb-3">Property Types</p>
+                          <div id="bathroomsSlider" class="noUi-target noUi-ltr noUi-horizontal"></div>
                         </div>
                       </div>
                     </div>
