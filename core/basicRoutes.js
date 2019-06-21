@@ -1,5 +1,5 @@
 exports.functionIndex = async function (req, res){
-    res.render('index')
+    res.render('rentCount')
 }
 
 exports.functionBadRequest = async function (req, res){
