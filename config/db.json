@@ -3,6 +3,5 @@
     "port": 27017,
     "user": "root",
     "password": "root",
-    "db_name": "",
-    "collection_name": ""
+    "db_name": "ItalyRents"
 }
