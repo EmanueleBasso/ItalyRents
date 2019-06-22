@@ -145,7 +145,7 @@
                         <div class="card-header card-header-border-bottom">
                           <h2>Query Options</h2>
                         </div>
-                        <div class="card-body">
+                        <div id="queryOptions" class="card-body">
                           <p class="text-dark font-weight-medium mb-3">Amenities</p>
                           <label class="control control-checkbox">All
                               <input onchange="toogleAmenities(this)" type="checkbox"/>
@@ -219,7 +219,7 @@
                                 </label>
                             </li>
                           </ul>
-                          <br>
+                          <br/>
                           <p class="text-dark font-weight-medium mb-3">Property Types</p>
                           <label class="control control-checkbox">All
                               <input onchange="tooglePropertyTypes(this)" type="checkbox"/>
@@ -275,7 +275,7 @@
                                 </label>
                             </li>
                           </ul>
-                          <br>
+                          <br/>
                           <div class="slidersContainer">
                             <div class="sliderContainer">
                               <p class="text-dark font-weight-medium mb-3">Number of bathrooms</p>
@@ -289,6 +289,15 @@
                               <p class="text-dark font-weight-medium mb-3">Number of beds</p>
                               <div id="bedsSlider" class="noUi-target noUi-ltr noUi-horizontal slider"></div>
                             </div>
+                            <div class="sliderContainer">
+                              <p class="text-dark font-weight-medium mb-3">Square Meters Range</p>
+                              <div id="squareMetersSlider" class="noUi-target noUi-ltr noUi-horizontal slider"></div>
+                            </div>
+                          </div>
+                        <br/>
+                        <hr>
+                        <div class="submitContainer">
+                          <button type="button" onclick="retrievalData()" class="mb-1 btn btn-primary">Show Data</button>
                         </div>
                       </div>
                     </div>
