@@ -29,6 +29,7 @@
   <!-- ITALYRENTS CSS -->
   <link href="../styles/italyrents-css/fixed_styles.css" rel="stylesheet" />
   <link href="../styles/italyrents-css/slider.css" rel="stylesheet" />
+  <link href="../styles/italyrents-css/select_box.css" rel="stylesheet" />
   
 
   <!-- FAVICON -->
@@ -53,6 +54,7 @@
  <!-- ITALYRENTS JS --> 
   <script src="../scripts/italyrents-js/select_all.js"></script>
   <script src="../scripts/italyrents-js/sliders.js"></script>
+  <script src="../scripts/italyrents-js/neighbourhoods.js"></script>
 </head>
 
 
@@ -275,6 +277,32 @@
                                 </label>
                             </li>
                           </ul>
+                          <br/>
+                          <p class="text-dark font-weight-medium mb-3">Location</p>
+                          <div class="selectsContainer">
+                            <div id="regionContainer" class="selectContainer">
+                              <p>Cities</p>
+                              <div class="form-group">
+                                <select class="js-example-basic-multiple form-control" name="city" onchange="loadNeighbourhoods(this)">
+                                  <option value="All" selected>All</option>
+                                  <option value="Bergamo">Bergamo</option>
+                                  <option value="Bologna">Bologna</option>
+                                  <option value="Firenze">Firenze</option>
+                                  <option value="Milano">Milano</option>
+                                  <option value="Napoli">Napoli</option>
+                                  <option value="Roma">Roma</option>
+                                  <option value="Venezia">Venezia</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div id="neighbourhoodContainer" class="selectContainer">
+                              <p>Neighbourhoods</p>
+                              <div class="form-group">
+                                <select class="js-example-basic-multiple form-control" name="neighbourhood" disabled>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
                           <br/>
                           <div class="slidersContainer">
                             <div class="sliderContainer">

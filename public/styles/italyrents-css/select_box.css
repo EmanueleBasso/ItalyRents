@@ -1,0 +1,10 @@
+.selectsContainer
+{
+    display: flex;
+    flex-direction: row;
+}
+
+.selectContainer
+{
+    flex-grow: 1;
+}
