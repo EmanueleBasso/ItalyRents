@@ -45,10 +45,111 @@ function retrievalData(){
         dataType: 'json'
     })
     .done(function( data ) {
-        console.log(data)
-        
-        // Mostrare i dati
-        
+        //console.log(data)
+
+        var graphic = `<div class="col-12" id="graphic">
+            <div class="card card-default pb-5">
+                <div class="card-header justify-content-center">
+                    <h2 class="text-center">Ratings</h2>
+                </div>
+                <div class="card-body" style="height: 600px;">
+                    <canvas id="bar3"></canvas>
+                    <div id='customLegend' class='customLegend'></div>
+                </div>
+            </div>
+        </div>`
+
+        $('#graphic').remove()
+        $('.row').append(graphic)
+
+        showGraphic(data)
+                
         stopLoader()
     })
+}
+
+function showGraphic(data){
+    var ratings_list = ["accuracy", "checkin", "cleanliness", "communication", "location"]
+    var colors = ["rgb(76, 132, 255)", "rgb(204, 0, 255)", "rgb(254, 196, 0)", "rgb(41, 204, 151)", "rgb(150, 0, 47)"]
+
+    var ratings = []
+    for(prop in data[0]){
+        for(r of ratings_list){
+            if(r === prop){
+                ratings.push(r)
+            }
+        }
+    }
+
+    var cities = []
+    for(obj of data){
+        cities.push(obj['city_name'])
+    }
+
+    var datasets = []
+    var i = 0
+    for(r of ratings){
+        obj_data = {}
+        obj_data['label'] = r
+
+        obj_data['data'] = []
+        for(obj of data){
+            obj_data['data'].push(obj[r])
+        }
+
+        obj_data['backgroundColor'] = colors[i]
+        obj_data['borderColor'] = colors[i].substr(0, colors[i] - 1) + ',0)'
+        obj_data['pointBackgroundColor'] = colors[i].substr(0, colors[i] - 1) + ',0)'
+        obj_data['pointHoverBackgroundColor'] = colors[i].substr(0, colors[i] - 1) + ',1)'
+        obj_data['pointHoverRadius'] = 3
+        obj_data['pointHitRadius'] = 30
+
+        datasets.push(obj_data)
+        
+        i++
+    }
+
+    var acquisition3 = document.getElementById("bar3");
+    if (acquisition3 !== null) {
+    var acChart3 = new Chart(acquisition3, {
+        type: "bar",
+        data: {
+        labels: cities,
+        datasets: datasets
+        },
+        options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        legend: {
+            display: false
+        },
+        scales: {
+            xAxes: [
+            {
+                gridLines: {
+                display: false
+                }
+            }
+            ],
+            yAxes: [
+            {
+                gridLines: {
+                display: true
+                },
+                ticks: {
+                beginAtZero: false,
+                stepSize: 1,
+                fontColor: "#8a909d",
+                fontFamily: "Roboto, sans-serif",
+                min: 7,
+                max: 10
+                }
+            }
+            ]
+        },
+        tooltips: {}
+        }
+    });
+    document.getElementById("customLegend").innerHTML = acChart3.generateLegend();
+    }
 }

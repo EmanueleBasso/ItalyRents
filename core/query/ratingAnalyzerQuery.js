@@ -9,7 +9,7 @@ module.exports = async function (req, res){
     var ratings = req.body.ratings.split(',')
     var rating_type = req.body.rating_type
 
-    console.log(req.body)
+    //console.log(req.body)
 
     ratingAnalyzerQueryDB(city_name, neighbourhood, property_type, amenities, ratings, rating_type, sendResponse, res)
 }
