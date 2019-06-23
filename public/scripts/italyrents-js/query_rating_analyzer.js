@@ -36,11 +36,8 @@ function retrievalData(){
     var rating_type = $('#queryOptions #ratingTypeContainer option:selected').prop('value')
     request['rating_type'] = rating_type
 
+    startLoader()
 
-
-
-
-    // Rotellina che gira sul video
     $.ajax({
         method: 'POST',
         url: '/ItalyRents/ratingAnalyzerQuery',
@@ -49,6 +46,9 @@ function retrievalData(){
     })
     .done(function( data ) {
         console.log(data)
+        
         // Mostrare i dati
-    });
+        
+        stopLoader()
+    })
 }
