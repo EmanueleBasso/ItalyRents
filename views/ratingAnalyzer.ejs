@@ -54,10 +54,11 @@
   <script src="../scripts/italyrents-js/select_all.js"></script>
   <script src="../scripts/italyrents-js/sliders.js"></script>
   <script src="../scripts/italyrents-js/neighbourhoods.js"></script>
+  <script src="../scripts/italyrents-js/query_rating_analyzer.js"></script>
 </head>
 
 
-  <body class="sidebar-fixed sidebar-dark" id="body" onload="loadSliders()">
+  <body class="sidebar-fixed sidebar-dark" id="body" onload="loadSliders(); loadNeighbourhoods();">
     <script>
       NProgress.configure({ showSpinner: false });
       NProgress.start();
@@ -146,6 +147,31 @@
                     <h2>Query Options</h2>
                   </div>
                   <div id="queryOptions" class="card-body">
+                    <p class="text-dark font-weight-medium mb-3">Location</p>
+                    <div class="selectsContainer">
+                      <div id="regionContainer" class="selectContainer">
+                        <p>Cities</p>
+                        <div class="form-group">
+                          <select id="selectCities" class="js-example-basic-multiple form-control" name="city" onchange="loadNeighbourhoods(this)">
+                            <option value="All" selected>All</option>
+                            <option value="Bergamo">Bergamo</option>
+                            <option value="Bologna">Bologna</option>
+                            <option value="Firenze">Firenze</option>
+                            <option value="Milano">Milano</option>
+                            <option value="Napoli">Napoli</option>
+                            <option value="Roma">Roma</option>
+                            <option value="Venezia">Venezia</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div id="neighbourhoodContainer" class="selectContainer">
+                        <p>Neighbourhoods</p>
+                        <div class="form-group">
+                          <select id="selectNeighbourhoods" class="js-example-basic-multiple form-control" name="neighbourhood" disabled>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
                     <p class="text-dark font-weight-medium mb-3">Amenities</p>
                     <label class="control control-checkbox">All
                         <input onchange="toogleAmenities(this)" type="checkbox"/>
@@ -172,7 +198,7 @@
                       </li>
                       <li class="d-inline-block mr-3">
                           <label class="control control-checkbox">Kitchen
-                            <input naem="Kitchen" type="checkbox"/>
+                            <input name="Kitchen" type="checkbox"/>
                             <div class="control-indicator"></div>
                           </label>
                       </li>
@@ -184,7 +210,7 @@
                       </li>
                       <li class="d-inline-block mr-3">
                           <label class="control control-checkbox">Elevator
-                            <input  name="Elevator" type="checkbox"/>
+                            <input name="Elevator" type="checkbox"/>
                             <div class="control-indicator"></div>
                           </label>
                       </li>
@@ -276,32 +302,7 @@
                       </li>
                     </ul>
                     <br/>
-                    <p class="text-dark font-weight-medium mb-3">Location</p>
-                    <div class="selectsContainer">
-                      <div id="regionContainer" class="selectContainer">
-                        <p>Cities</p>
-                        <div class="form-group">
-                          <select class="js-example-basic-multiple form-control" name="city" onchange="loadNeighbourhoods(this)">
-                            <option value="All" selected>All</option>
-                            <option value="Bergamo">Bergamo</option>
-                            <option value="Bologna">Bologna</option>
-                            <option value="Firenze">Firenze</option>
-                            <option value="Milano">Milano</option>
-                            <option value="Napoli">Napoli</option>
-                            <option value="Roma">Roma</option>
-                            <option value="Venezia">Venezia</option>
-                          </select>
-                        </div>
-                      </div>
-                      <div id="neighbourhoodContainer" class="selectContainer">
-                        <p>Neighbourhoods</p>
-                        <div class="form-group">
-                          <select class="js-example-basic-multiple form-control" name="neighbourhood" disabled>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-                    <br/>
+                    
                     <p class="text-dark font-weight-medium mb-3">Ratings to show</p>
                     <label class="control control-checkbox">All
                         <input onchange="toogleRatings(this)" type="checkbox"/>
@@ -356,8 +357,8 @@
                       <button type="button" onclick="retrievalData()" class="mb-1 btn btn-primary">Show Data</button>
                     </div>
                   </div>
-                  </div>
                 </div>
+              </div>
 
 							<div class="col-12">
                 <div class="card card-default">

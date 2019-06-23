@@ -6,6 +6,7 @@ const option = {
     user: config.user,
     pass: config.password,
     dbName: config.db_name,
+    poolSize: 20,
     useNewUrlParser: true
 }
 
