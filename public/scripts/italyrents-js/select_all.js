@@ -23,3 +23,16 @@ function tooglePropertyTypes(checkBoxAll)
         propertyTypes.find('input').prop("checked", false);
     }
 }
+
+function toogleRatings(checkBoxAll)
+{
+    var ratings = $('#ratingsToShow');
+    if (checkBoxAll.checked == true)
+    {
+        ratings.find('input').prop("checked", true);
+    }
+    else
+    {
+        ratings.find('input').prop("checked", false);
+    }
+}
