@@ -30,14 +30,14 @@ function loadSliders()
     });
 
     noUiSlider.create(bedsSlider, {
-        start: [1, 5],
+        start: [1, 8],
         step: 1,
         connect: true,
         tooltips: true,
         format: wNumb({decimals: 0}),
         range: {
             'min': 1,
-            'max': 5
+            'max': 8
         }
     });
 

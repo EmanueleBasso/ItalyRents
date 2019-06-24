@@ -30,6 +30,7 @@
   <link href="../styles/italyrents-css/fixed_styles.css" rel="stylesheet" />
   <link href="../styles/italyrents-css/slider.css" rel="stylesheet" />
   <link href="../styles/italyrents-css/select_box.css" rel="stylesheet" />
+  <link href="../styles/italyrents-css/loader.css" rel="stylesheet" />
   
 
   <!-- FAVICON -->
@@ -55,13 +56,13 @@
   <script src="../scripts/italyrents-js/select_all.js"></script>
   <script src="../scripts/italyrents-js/sliders.js"></script>
   <script src="../scripts/italyrents-js/neighbourhoods.js"></script>
-  <script src="../scripts/italyrents-js/query_rent_count.js"></script>
   <script src="../scripts/italyrents-js/loader.js"></script>
+  <script src="../scripts/italyrents-js/query_rent_count.js"></script>
 
 </head>
 
 
-  <body class="sidebar-fixed sidebar-dark" id="body" onload="loadSliders(); initialSelection(); loadNeighbourhoods();">
+  <body id="body" class="sidebar-fixed sidebar-dark" onload="/*hideChart();*/ loadSliders(); initialSelection(); loadNeighbourhoods();">
     <script>
       NProgress.configure({ showSpinner: false });
       NProgress.start();
@@ -331,106 +332,23 @@
                         </div>
                       </div>
                     </div>
-							<div class="col-12">
-								<div class="card card-default">
-									<div class="card-header justify-content-center">
-										<h2 class="text-center">Simple Line Chart</h2>
-									</div>
-									<div class="card-body" style="height: 450px;">
-										<canvas id="linechart" class="chartjs"></canvas>
-									</div>
-								</div>
-							</div>
-							<div class="col-12">
-								<div class="card card-default">
-									<div class="card-header justify-content-center">
-										<h2 class="text-center">Dual Line Chart</h2>
-									</div>
-									<div class="card-body" style="height: 300px;">
-										<canvas id="dual-line"></canvas>
-									</div>
-								</div>
-							</div>
-							<div class="col-12">
-								<div class="card card-default">
-									<div class="card-header justify-content-center">
-										<h2 class="text-center">Area Chart</h2>
-									</div>
-									<div class="card-body" style="height: 300px;">
-										<canvas id="area-chart"></canvas>
-									</div>
-								</div>
-							</div>
-							<div class="col-12">
+                  </div>
+							<!-- <div class="col-12" id="chart">
 								<div class="card card-default pb-5">
 									<div class="card-header justify-content-center">
-										<h2 class="text-center">Bar Chart</h2>
+										<h2 class="text-center">Count</h2>
 									</div>
-									<div class="card-body" style="height: 300px;">
+									<div class="card-body" style="height: 850px;">
 										<canvas id="bar3"></canvas>
 										<div id='customLegend' class='customLegend'></div>
 									</div>
 								</div>
-							</div>
-							<div class="col-12 col-lg-6">
-								<div class="card card-default">
-									<div class="card-header justify-content-center">
-										<h2 class="text-center">Product Line Chart</h2>
-									</div>
-									<div class="card-body">
-										<canvas id="activity"></canvas>
-									</div>
-								</div>
-							</div>
-							<div class="col-12 col-lg-6">
-								<div class="card card-default">
-									<div class="card-header justify-content-center">
-										<h2 class="text-center">Multiple Statistics</h2>
-									</div>
-									<div class="card-body" style="height: 380px;">
-										<canvas id="mstat"></canvas>
-									</div>
-								</div>
-							</div>
-							<div class="col-12 col-lg-6">
-								<div class="card card-default">
-									<div class="card-header justify-content-center">
-										<h2 class="text-center">Donut Chart</h2>
-									</div>
-									<div class="card-body" style="height: 400px;">
-										<canvas id="deviceChart"></canvas>
-									</div>
-								</div>
-							</div>
-							<div class="col-12 col-lg-6">
-								<div class="card card-default">
-									<div class="card-header justify-content-center">
-										<h2 class="text-center">Polar Chart</h2>
-									</div>
-									<div class="card-body" style="height: 400px;">
-										<canvas id="polar"></canvas>
-									</div>
-								</div>
-							</div>
-							<div class="col-12 col-lg-6">
-								<div class="card card-default">
-									<div class="card-header justify-content-center">
-										<h2 class="text-center">Radar Chart</h2>
-									</div>
-									<div class="card-body" style="height: 400px;">
-										<canvas id="radar"></canvas>
-									</div>
-								</div>
-							</div>
+							</div> -->
 						</div>
-</div>
+					</div>
+      </div>
 
-          
-
-
-        </div>
-
-                  <footer class="footer mt-auto">
+            <footer class="footer mt-auto">
             <div class="copyright bg-white">
               <p>
                 &copy; <span id="copy-year">2019</span> Copyright Sleek Dashboard Bootstrap Template by
@@ -467,7 +385,6 @@
 <script src="../scripts/plugins/daterangepicker/moment.min.js"></script>
 <script src="../scripts/plugins/daterangepicker/daterangepicker.js"></script>
 <script src="../scripts/js/sleek.js"></script>
-<script src="../scripts/js/chart.js"></script>
 <script src="../scripts/js/date-range.js"></script>
 <script src="../scripts/js/map.js"></script>
 <script src="../scripts/js/custom.js"></script>
