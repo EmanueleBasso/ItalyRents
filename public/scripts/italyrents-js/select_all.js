@@ -1,3 +1,8 @@
+function initialSelection()
+{
+    $('#queryOptions').find('[type=checkbox]').prop("checked", true);
+}
+
 function toogleAmenities(checkBoxAll)
 {
     var amenities = $('#amenities');

@@ -41,7 +41,7 @@ function loadSliders()
         }
     });
 
-    noUiSlider.create(squareMetersSlider, {
+    noUiSlider.create(squareMetresSlider, {
         start: [30, 200],
         step: 10,
         connect: true,
@@ -57,6 +57,6 @@ function loadSliders()
     });
 
     //How to retrieval left and right value of the slider
-    console.log(bathroomsSlider.noUiSlider.get());
+    //console.log(bathroomsSlider.noUiSlider.get());
 
 }

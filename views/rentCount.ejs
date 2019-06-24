@@ -56,10 +56,12 @@
   <script src="../scripts/italyrents-js/sliders.js"></script>
   <script src="../scripts/italyrents-js/neighbourhoods.js"></script>
   <script src="../scripts/italyrents-js/query_rent_count.js"></script>
+  <script src="../scripts/italyrents-js/loader.js"></script>
+
 </head>
 
 
-  <body class="sidebar-fixed sidebar-dark" id="body" onload="loadSliders(); loadNeighbourhoods();">
+  <body class="sidebar-fixed sidebar-dark" id="body" onload="loadSliders(); initialSelection(); loadNeighbourhoods();">
     <script>
       NProgress.configure({ showSpinner: false });
       NProgress.start();
@@ -116,7 +118,7 @@
                     </a>
                   </li>
                   <li  class="has-sub expand" >
-                    <a class="sidenav-item-link" href="ItalyRents/ratingAnalyzer">
+                    <a class="sidenav-item-link" href="ratingAnalyzer">
                       <i class="mdi mdi-chart-pie"></i>
                       <span class="nav-text">Rating Analyzer</span>
                     </a>
@@ -174,6 +176,62 @@
                               </div>
                             </div>
                           </div>
+                          <p class="text-dark font-weight-medium mb-3">Property Types</p>
+                          <label class="control control-checkbox">All
+                              <input onchange="tooglePropertyTypes(this)" type="checkbox"/>
+                              <div class="control-indicator"></div>
+                          </label>
+                          <ul id="propertyTypes" class="list-unstyled list-inline">
+                            <li class="d-inline-block mr-3">
+                              <label class="control control-checkbox">Apartment
+                                <input name="Apartment" type="checkbox"/>
+                                <div class="control-indicator"></div>
+                              </label>
+                            </li>
+                            <li class="d-inline-block mr-3">
+                                <label class="control control-checkbox">Bed and breakfast
+                                  <input name="Bed and breakfast" type="checkbox"/>
+                                  <div class="control-indicator"></div>
+                                </label>
+                            </li>
+                            <li class="d-inline-block mr-3">
+                                <label class="control control-checkbox">House
+                                  <input name="House" type="checkbox"/>
+                                  <div class="control-indicator"></div>
+                                </label>
+                            </li>
+                            <li class="d-inline-block mr-3">
+                                <label class="control control-checkbox">Condominium
+                                  <input name="Condominium" type="checkbox"/>
+                                  <div class="control-indicator"></div>
+                                </label>
+                            </li>
+                            <li class="d-inline-block mr-3">
+                                <label class="control control-checkbox">Villa
+                                  <input name="Villa" type="checkbox"/>
+                                  <div class="control-indicator"></div>
+                                </label>
+                            </li>
+                            <li class="d-inline-block mr-3">
+                                <label class="control control-checkbox">Hotel
+                                  <input name="Hotel"type="checkbox"/>
+                                  <div class="control-indicator"></div>
+                                </label>
+                            </li>
+                            <li class="d-inline-block mr-3">
+                                <label class="control control-checkbox">Loft
+                                  <input name="Loft" type="checkbox"/>
+                                  <div class="control-indicator"></div>
+                                </label>
+                            </li>
+                            <li class="d-inline-block mr-3">
+                                <label class="control control-checkbox">Boutique hotel
+                                  <input name="Boutique hotel" type="checkbox"/>
+                                  <div class="control-indicator"></div>
+                                </label>
+                            </li>
+                          </ul>
+                          <br/>
                           <p class="text-dark font-weight-medium mb-3">Amenities</p>
                           <label class="control control-checkbox">All
                               <input onchange="toogleAmenities(this)" type="checkbox"/>
@@ -248,62 +306,6 @@
                             </li>
                           </ul>
                           <br/>
-                          <p class="text-dark font-weight-medium mb-3">Property Types</p>
-                          <label class="control control-checkbox">All
-                              <input onchange="tooglePropertyTypes(this)" type="checkbox"/>
-                              <div class="control-indicator"></div>
-                          </label>
-                          <ul id="propertyTypes" class="list-unstyled list-inline">
-                            <li class="d-inline-block mr-3">
-                              <label class="control control-checkbox">Apartment
-                                <input name="Apartment" type="checkbox"/>
-                                <div class="control-indicator"></div>
-                              </label>
-                            </li>
-                            <li class="d-inline-block mr-3">
-                                <label class="control control-checkbox">Bed and breakfast
-                                  <input name="Bed and breakfast" type="checkbox"/>
-                                  <div class="control-indicator"></div>
-                                </label>
-                            </li>
-                            <li class="d-inline-block mr-3">
-                                <label class="control control-checkbox">House
-                                  <input name="House" type="checkbox"/>
-                                  <div class="control-indicator"></div>
-                                </label>
-                            </li>
-                            <li class="d-inline-block mr-3">
-                                <label class="control control-checkbox">Condominium
-                                  <input name="Condominium" type="checkbox"/>
-                                  <div class="control-indicator"></div>
-                                </label>
-                            </li>
-                            <li class="d-inline-block mr-3">
-                                <label class="control control-checkbox">Villa
-                                  <input name="Villa" type="checkbox"/>
-                                  <div class="control-indicator"></div>
-                                </label>
-                            </li>
-                            <li class="d-inline-block mr-3">
-                                <label class="control control-checkbox">Hotel
-                                  <input name="Hotel"type="checkbox"/>
-                                  <div class="control-indicator"></div>
-                                </label>
-                            </li>
-                            <li class="d-inline-block mr-3">
-                                <label class="control control-checkbox">Loft
-                                  <input name="Loft" type="checkbox"/>
-                                  <div class="control-indicator"></div>
-                                </label>
-                            </li>
-                            <li class="d-inline-block mr-3">
-                                <label class="control control-checkbox">Boutique hotel
-                                  <input name="Boutique hotel" type="checkbox"/>
-                                  <div class="control-indicator"></div>
-                                </label>
-                            </li>
-                          </ul>
-                          <br/>
                           <div class="slidersContainer">
                             <div class="sliderContainer">
                               <p class="text-dark font-weight-medium mb-3">Number of bathrooms</p>
@@ -318,8 +320,8 @@
                               <div id="bedsSlider" class="noUi-target noUi-ltr noUi-horizontal slider"></div>
                             </div>
                             <div class="sliderContainer">
-                              <p class="text-dark font-weight-medium mb-3">Square Meters Range</p>
-                              <div id="squareMetersSlider" class="noUi-target noUi-ltr noUi-horizontal slider"></div>
+                              <p class="text-dark font-weight-medium mb-3">Square Metres Range</p>
+                              <div id="squareMetresSlider" class="noUi-target noUi-ltr noUi-horizontal slider"></div>
                             </div>
                           </div>
                         <br/>

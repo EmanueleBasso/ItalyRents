@@ -3,6 +3,7 @@ const logger = require('loglevel')
 const config = require('./config/essential')
 const basicRoutes = require('./core/basicRoutes')
 const ratingAnalyzerQuery = require('./core/query/ratingAnalyzerQuery')
+const rentCountQuery = require('./core/query/rentCountQuery')
 
 const app = express()
 
@@ -16,6 +17,7 @@ app.use(express.static('public'))
 
 app.get(config.basepath, basicRoutes.functionRentCount)
 app.get(config.basepath + '/' + 'rentCount', basicRoutes.functionRentCount)
+app.post(config.basepath + '/' + 'rentCountQuery', rentCountQuery)
 
 app.get(config.basepath + '/' + 'ratingAnalyzer', basicRoutes.functionRatingAnalyzer)
 app.post(config.basepath + '/' + 'ratingAnalyzerQuery', ratingAnalyzerQuery)
