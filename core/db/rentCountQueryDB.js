@@ -132,8 +132,11 @@ async function query(city_name, neighbourhood, property_type, amenities, bathroo
                     }
                     else
                     {
-                        docs.city_name = city_name
-                        docs.neighbourhood = neighbourhood
+                        var infoObj = {
+                            city_name: city_name,
+                            neighbourhood: neighbourhood
+                        }
+                        docs.splice(0, 0, infoObj)
                         resolve(docs)
                     }
                     console.log(docs)
