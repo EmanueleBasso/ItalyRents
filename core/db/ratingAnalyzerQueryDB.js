@@ -67,12 +67,16 @@ async function query(city_name, neighbourhood, property_type, amenities, ratings
                 collection.aggregate(pipeline).toArray(function(err, docs){
                     if(err) 
                         logger.error(err)
-
-                    delete docs[0]._id
-                    docs[0].city_name = city_name
-                    docs[0].neighbourhood = neighbourhood
-
-                    resolve(docs[0])
+                    
+                    if(docs[0] == undefined){
+                        resolve(null)
+                    }else{
+                        delete docs[0]._id
+                        docs[0].city_name = city_name
+                        docs[0].neighbourhood = neighbourhood
+    
+                        resolve(docs[0])
+                    }
                 })
             })
         })()

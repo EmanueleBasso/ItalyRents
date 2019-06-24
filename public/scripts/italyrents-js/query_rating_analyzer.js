@@ -73,17 +73,19 @@ function showGraphic(data){
     var colors = ["rgb(76, 132, 255)", "rgb(204, 0, 255)", "rgb(254, 196, 0)", "rgb(41, 204, 151)", "rgb(150, 0, 47)"]
 
     var ratings = []
-    for(prop in data[0]){
-        for(r of ratings_list){
-            if(r === prop){
-                ratings.push(r)
+    var cities = []
+    if(data[0] != null){
+        for(prop in data[0]){
+            for(r of ratings_list){
+                if(r === prop){
+                    ratings.push(r)
+                }
             }
         }
-    }
 
-    var cities = []
-    for(obj of data){
-        cities.push(obj['city_name'])
+        for(obj of data){
+            cities.push(obj['city_name'])
+        }
     }
 
     var datasets = []
@@ -140,9 +142,7 @@ function showGraphic(data){
                 beginAtZero: false,
                 stepSize: 1,
                 fontColor: "#8a909d",
-                fontFamily: "Roboto, sans-serif",
-                min: 7,
-                max: 10
+                fontFamily: "Roboto, sans-serif"
                 }
             }
             ]
