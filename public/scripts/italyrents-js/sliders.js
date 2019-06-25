@@ -18,18 +18,6 @@ function loadSliders()
     });
 
     noUiSlider.create(bedroomsSlider, {
-        start: [1, 5],
-        step: 1,
-        connect: true,
-        tooltips: true,
-        format: wNumb({decimals: 0}),
-        range: {
-            'min': 1,
-            'max': 5
-        }
-    });
-
-    noUiSlider.create(bedsSlider, {
         start: [1, 8],
         step: 1,
         connect: true,
@@ -41,8 +29,20 @@ function loadSliders()
         }
     });
 
+    noUiSlider.create(bedsSlider, {
+        start: [1, 12],
+        step: 1,
+        connect: true,
+        tooltips: true,
+        format: wNumb({decimals: 0}),
+        range: {
+            'min': 1,
+            'max': 12
+        }
+    });
+
     noUiSlider.create(squareMetresSlider, {
-        start: [30, 470],
+        start: [30, 280],
         step: 10,
         connect: true,
         tooltips: true,
@@ -52,7 +52,7 @@ function loadSliders()
         }),
         range: {
             'min': 30,
-            'max': 470
+            'max': 280
         }
     });
 

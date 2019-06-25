@@ -12,15 +12,16 @@ function showChart(data)
     'rgb(153, 153, 102)', 'rgb(0, 153, 51)'];
     
     var cities = [];
-    if (data[0] != null)
+    console.log(data);
+    for (item of data)
     {
-        for (item of data)
+        if (item != null)
         {
             cities.push(item[0]['city_name']);
         }
     }
 
-    if (cities.length == 1 && data[0][0]['neighbourhood'] != 'All')
+    if (data.length == 1 && data[0][0]['neighbourhood'] != 'All')
     {
         cities[0] = data[0][0]['neighbourhood'] + ' (' + cities[0] + ')';
     }
@@ -28,6 +29,7 @@ function showChart(data)
 
     // var max_value = 0;
     var datasets = [];
+    var k = 0;
     for (var i = 0; i < cities.length; i++)
     {
         var cityObj = {};
@@ -37,9 +39,13 @@ function showChart(data)
         {
             var found = false;
             var j = 1;
-            while (!found && j < data[i].length)
+            while (data[k] == null)
             {
-                if(data[i][j]['_id'] == pType)
+                k++;
+            }
+            while (!found && j < data[k].length)
+            {
+                if(data[k][j]['_id'] == pType)
                 {  
                     // var value = data[i][j]['count'];
                     // if (value >= max_value)
@@ -47,7 +53,7 @@ function showChart(data)
                     //     max_value = value;
                     // }
                     // cityObj['data'].push(value);
-                    cityObj['data'].push(data[i][j]['count']);
+                    cityObj['data'].push(data[k][j]['count']);
                     found = true;
                 }
                 j++;
@@ -65,6 +71,7 @@ function showChart(data)
         cityObj['pointHitRadius'] = 30;
 
         datasets.push(cityObj);
+        k++;
     }
     // console.log(datasets);
     // console.log(max_value);
