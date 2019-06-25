@@ -26,6 +26,7 @@ function showChart(data)
     }
     // console.log(cities);
 
+    // var max_value = 0;
     var datasets = [];
     for (var i = 0; i < cities.length; i++)
     {
@@ -39,11 +40,21 @@ function showChart(data)
             while (!found && j < data[i].length)
             {
                 if(data[i][j]['_id'] == pType)
-                {
+                {  
+                    // var value = data[i][j]['count'];
+                    // if (value >= max_value)
+                    // {
+                    //     max_value = value;
+                    // }
+                    // cityObj['data'].push(value);
                     cityObj['data'].push(data[i][j]['count']);
                     found = true;
                 }
                 j++;
+            }
+            if (!found)
+            {
+                cityObj['data'].push(0);
             }
         }
         cityObj['backgroundColor'] = colors[i];
@@ -56,6 +67,7 @@ function showChart(data)
         datasets.push(cityObj);
     }
     // console.log(datasets);
+    // console.log(max_value);
 
     var acquisition3 = document.getElementById("bar3");
     if (acquisition3 !== null)
@@ -87,7 +99,7 @@ function showChart(data)
                             },
                             ticks: {
                                 beginAtZero: false,
-                                stepSize: 500,
+                                // stepSize: 500,
                                 fontColor: "#8a909d",
                                 fontFamily: "Roboto, sans-serif"
                             }
