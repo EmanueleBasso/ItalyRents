@@ -22,6 +22,12 @@ app.post(config.basepath + '/' + 'rentCountQuery', rentCountQuery)
 app.get(config.basepath + '/' + 'ratingAnalyzer', basicRoutes.functionRatingAnalyzer)
 app.post(config.basepath + '/' + 'ratingAnalyzerQuery', ratingAnalyzerQuery)
 
+app.get(config.basepath + '/' + 'ratingClasses', basicRoutes.functionRatingClasses)
+//app.post(config.basepath + '/' + 'ratingClassesQuery')
+
+app.get(config.basepath + '/' + 'squareMetresClasses', basicRoutes.functionSquareMetresClasses)
+//app.post(config.basepath + '/' + 'squareMetresClassesQuery', )
+
 app.use(basicRoutes.functionInvalidPath)      // Default path
 
 app.listen(config.port, config.host, () => logger.info('[System] App ItalyRents deployed at: http://' + config.host + ':' + config.port + config.basepath))
