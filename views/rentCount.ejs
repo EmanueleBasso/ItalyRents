@@ -58,11 +58,12 @@
   <script src="../scripts/italyrents-js/neighbourhoods.js"></script>
   <script src="../scripts/italyrents-js/loader.js"></script>
   <script src="../scripts/italyrents-js/query_rent_count.js"></script>
+  <script src="../scripts/italyrents-js/rent_count_page.js"></script>
 
 </head>
 
 
-  <body id="body" class="sidebar-fixed sidebar-dark" onload="/*hideChart();*/ loadSliders(); initialSelection(); loadNeighbourhoods();">
+  <body id="body" class="sidebar-fixed sidebar-dark" onload="/*hideChart();*/ loadSliders(); initialSelection(); fixLinks(); loadNeighbourhoods();">
     <script>
       NProgress.configure({ showSpinner: false });
       NProgress.start();
