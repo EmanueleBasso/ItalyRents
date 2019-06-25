@@ -42,7 +42,7 @@ function loadSliders()
     });
 
     noUiSlider.create(squareMetresSlider, {
-        start: [30, 200],
+        start: [30, 470],
         step: 10,
         connect: true,
         tooltips: true,
@@ -52,7 +52,7 @@ function loadSliders()
         }),
         range: {
             'min': 30,
-            'max': 200
+            'max': 470
         }
     });
 

@@ -87,7 +87,7 @@ function showChart(data)
                             },
                             ticks: {
                                 beginAtZero: false,
-                                stepSize: 1000,
+                                stepSize: 500,
                                 fontColor: "#8a909d",
                                 fontFamily: "Roboto, sans-serif"
                             }
