@@ -4,6 +4,7 @@ const config = require('./config/essential')
 const basicRoutes = require('./core/basicRoutes')
 const ratingAnalyzerQuery = require('./core/query/ratingAnalyzerQuery')
 const rentCountQuery = require('./core/query/rentCountQuery')
+const squareMetresClassesQuery = require('./core/query/squareMetresClassesQuery')
 
 const app = express()
 
@@ -26,7 +27,7 @@ app.get(config.basepath + '/' + 'ratingClasses', basicRoutes.functionRatingClass
 //app.post(config.basepath + '/' + 'ratingClassesQuery')
 
 app.get(config.basepath + '/' + 'squareMetresClasses', basicRoutes.functionSquareMetresClasses)
-//app.post(config.basepath + '/' + 'squareMetresClassesQuery', )
+app.post(config.basepath + '/' + 'squareMetresClassesQuery', squareMetresClassesQuery)
 
 app.use(basicRoutes.functionInvalidPath)      // Default path
 
