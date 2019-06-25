@@ -62,13 +62,13 @@ function retrievalData(){
         $('#graphic').remove()
         $('.row').append(graphic)
 
-        showGraphic(data)
+        showChart(data)
                 
         stopLoader()
     })
 }
 
-function showGraphic(data){
+function showChart(data){
     var ratings_list = ["accuracy", "checkin", "cleanliness", "communication", "location"]
     var colors = ["rgb(76, 132, 255)", "rgb(204, 0, 255)", "rgb(254, 196, 0)", "rgb(41, 204, 151)", "rgb(150, 0, 47)"]
 
@@ -86,6 +86,10 @@ function showGraphic(data){
         for(obj of data){
             cities.push(obj['city_name'])
         }
+    }
+
+    if((cities.length == 1) && data[0]['neighbourhood'] != 'All'){
+        cities[0] = data[0]['neighbourhood'] + ' (' + cities[0] + ')'
     }
 
     var datasets = []
