@@ -6,6 +6,7 @@ const ratingAnalyzerQuery = require('./core/query/ratingAnalyzerQuery')
 const rentCountQuery = require('./core/query/rentCountQuery')
 const squareMetresClassesQuery = require('./core/query/squareMetresClassesQuery')
 const ratingClassesQuery = require('./core/query/ratingClassesQuery')
+const amenityAndPropertyQuery = require('./core/query/amenityAndPropertyQuery')
 
 const app = express()
 
@@ -20,6 +21,9 @@ app.use(express.static('public'))
 app.get(config.basepath, basicRoutes.functionRentCount)
 app.get(config.basepath + '/' + 'rentCount', basicRoutes.functionRentCount)
 app.post(config.basepath + '/' + 'rentCountQuery', rentCountQuery)
+
+app.get(config.basepath + '/' + 'amenityAndProperty', basicRoutes.functionAmenityAndProperty)
+app.post(config.basepath + '/' + 'amenityAndPropertyQuery', amenityAndPropertyQuery)
 
 app.get(config.basepath + '/' + 'ratingAnalyzer', basicRoutes.functionRatingAnalyzer)
 app.post(config.basepath + '/' + 'ratingAnalyzerQuery', ratingAnalyzerQuery)

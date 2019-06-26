@@ -2,6 +2,10 @@ exports.functionRentCount = async function (req, res){
     res.render('rentCount')
 }
 
+exports.functionAmenityAndProperty = async function (req, res){
+    res.render('amenityAndProperty')
+}
+
 exports.functionRatingAnalyzer = async function (req, res){
     res.render('ratingAnalyzer')
 }

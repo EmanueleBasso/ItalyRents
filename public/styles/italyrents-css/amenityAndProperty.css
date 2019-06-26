@@ -1,0 +1,59 @@
+.card-body{
+    padding-right: 14rem !important;
+}
+
+#table{
+    border: 0;
+    padding-right: 40px;
+}
+
+#table td{
+    height: 65px;
+    vertical-align: middle !important;
+}
+
+#table td .form-group{
+    display: table-cell;
+    width: 1500px;
+    vertical-align: middle !important;
+}
+
+.cell_void{
+    background-color: white;
+    border: 0 !important;
+}
+
+.cell_select{
+    background-color: white;
+    border: 0 !important;
+}
+
+.cell_first{
+    width: 20%;
+}
+
+.cell_second{
+    width: 10%;
+}
+
+.cell_third{
+    width: 20%;
+}
+
+.cell_fourth{
+    width: 25%;
+}
+
+.cell_fifth{
+    width: 25%;
+}
+
+.cell_space{
+    height: 60px;
+}
+
+.cell_text{
+    color: #333333;
+    font-size: 1.2em;
+    text-align: center;
+}
