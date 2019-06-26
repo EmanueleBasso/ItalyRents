@@ -39,7 +39,7 @@ async function query(city_name, neighbourhood, property_type, amenities, ratings
                 var p_type = {$match: {$or: []}}
                 for(p of property_type){
                     var obj = {}
-                    obj["property_type"] = p
+                    obj['property_type'] = p
                     
                     p_type['$match']['$or'].push(obj)
                 }

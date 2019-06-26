@@ -1,4 +1,3 @@
-const logger = require('loglevel')
 const ratingAnalyzerQueryDB = require('../db/ratingAnalyzerQueryDB')
 
 module.exports = async function (req, res){
