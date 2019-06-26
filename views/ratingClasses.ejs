@@ -23,12 +23,8 @@
   <!-- SLEEK CSS -->
   <link id="sleek-css" rel="stylesheet" href="../styles/css/sleek.css" />
 
-  <!-- NOUISLIDER CSS -->
-  <link href="../styles/noUiSlider/nouislider.min.css" rel="stylesheet" />
-
   <!-- ITALYRENTS CSS -->
   <link href="../styles/italyrents-css/fixed_styles.css" rel="stylesheet" />
-  <link href="../styles/italyrents-css/slider.css" rel="stylesheet" />
   <link href="../styles/italyrents-css/select_box.css" rel="stylesheet" />
   <link href="../styles/italyrents-css/loader.css" rel="stylesheet" />
   
@@ -46,24 +42,16 @@
   <![endif]-->
   <script src="../scripts/plugins/nprogress/nprogress.js"></script>
 
-  <!-- NOUISLIDER JS -->
-  <script src="../scripts/wNumb/wNumb.js"></script>
-
-  <!-- NOUISLIDER JS -->
-  <script src="../scripts/noUiSlider/nouislider.min.js"></script>
-
- <!-- ITALYRENTS JS --> 
+ 
+  <!-- ITALYRENTS JS --> 
   <script src="../scripts/italyrents-js/select_all.js"></script>
-  <script src="../scripts/italyrents-js/sliders.js"></script>
-  <script src="../scripts/italyrents-js/neighbourhoods.js"></script>
   <script src="../scripts/italyrents-js/loader.js"></script>
-  <script src="../scripts/italyrents-js/query_rent_count.js"></script>
-  <script src="../scripts/italyrents-js/rent_count_page.js"></script>
+  <script src="../scripts/italyrents-js/query_rating_classes.js"></script>
 
 </head>
 
 
-  <body id="body" class="sidebar-fixed sidebar-dark" onload="/*hideChart();*/ loadSliders(); initialSelection(); fixLinks(); loadNeighbourhoods();">
+  <body id="body" class="sidebar-fixed sidebar-dark" onload="initialSelection();">
     <script>
       NProgress.configure({ showSpinner: false });
       NProgress.start();
@@ -107,36 +95,36 @@
             <div class="sidebar-scrollbar">
               <!-- sidebar menu -->
               <ul class="nav sidebar-inner" id="sidebar-menu">               
-                  <li  class="has-sub active expand" >
-                    <a class="sidenav-item-link" href="rentCount">
-                      <i class="mdi mdi-chart-bar"></i>
-                      <span class="nav-text">Rent Count</span>
-                    </a>
-                  </li>
-                  <li  class="has-sub expand" >
-                    <a class="sidenav-item-link" href="#2">
-                      <i class="mdi mdi-chart-pie"></i>
-                      <span class="nav-text">Price vs. Rating</span>
-                    </a>
-                  </li>
-                  <li  class="has-sub expand" >
-                    <a class="sidenav-item-link" href="ratingAnalyzer">
-                      <i class="mdi mdi-chart-bar"></i>
-                      <span class="nav-text">Rating Analyzer</span>
-                    </a>
-                  </li>
-                  <li  class="has-sub expand" >
-                    <a class="sidenav-item-link" href="ratingClasses">
-                      <i class="mdi mdi-table-large"></i>
-                      <span class="nav-text">Rating Classes</span>
-                    </a>
-                  </li>
-                  <li  class="has-sub expand" >
-                    <a class="sidenav-item-link" href="squareMetresClasses">
-                      <i class="mdi mdi-chart-pie"></i>
-                      <span class="nav-text">Square Metres Classes</span>
-                    </a>
-                  </li>
+                <li  class="has-sub expand" >
+                  <a class="sidenav-item-link" href="rentCount">
+                    <i class="mdi mdi-chart-bar"></i>
+                    <span class="nav-text">Rent Count</span>
+                  </a>
+                </li>
+                <li  class="has-sub expand" >
+                  <a class="sidenav-item-link" href="#2">
+                    <i class="mdi mdi-chart-pie"></i>
+                    <span class="nav-text">Price vs. Rating</span>
+                  </a>
+                </li>
+                <li  class="has-sub expand" >
+                  <a class="sidenav-item-link" href="ratingAnalyzer">
+                    <i class="mdi mdi-chart-bar"></i>
+                    <span class="nav-text">Rating Analyzer</span>
+                  </a>
+                </li>
+                <li  class="has-sub active expand" >
+                  <a class="sidenav-item-link" href="ratingClasses">
+                    <i class="mdi mdi-table-large"></i>
+                    <span class="nav-text">Rating Classes</span>
+                  </a>
+                </li>
+                <li  class="has-sub expand" >
+                  <a class="sidenav-item-link" href="squareMetresClasses">
+                    <i class="mdi mdi-chart-pie"></i>
+                    <span class="nav-text">Square Metres Classes</span>
+                  </a>
+                </li>
               </ul>
             </div>
          
@@ -158,7 +146,7 @@
                             <div id="regionContainer" class="selectContainer">
                               <p>Cities</p>
                               <div class="form-group">
-                                <select id="selectCities" class="js-example-basic-multiple form-control" name="city" onchange="loadNeighbourhoods(this)">
+                                <select id="selectCities" class="js-example-basic-multiple form-control" name="city">
                                   <option value="All" selected>All</option>
                                   <option value="Bergamo">Bergamo</option>
                                   <option value="Bologna">Bologna</option>
@@ -170,14 +158,41 @@
                                 </select>
                               </div>
                             </div>
-                            <div id="neighbourhoodContainer" class="selectContainer">
-                              <p>Neighbourhoods</p>
-                              <div class="form-group">
-                                <select id="selectNeighbourhoods" class="js-example-basic-multiple form-control" name="neighbourhood" disabled>
-                                </select>
-                              </div>
-                            </div>
                           </div>
+                          <p class="text-dark font-weight-medium mb-3">Ratings</p>
+                          <ul id="ratings" class="list-unstyled list-inline">
+                            <li class="d-inline-block mr-3">
+                              <label class="control control-radio">Accuracy
+                                <input name="rating" value="accuracy" type="radio" checked="true" />
+                                <div class="control-indicator"></div>
+                              </label>
+                            </li>
+                            <li class="d-inline-block mr-3">
+                                <label class="control control-radio">Cleanliness
+                                  <input name="rating" value="cleanliness" type="radio"/>
+                                  <div class="control-indicator"></div>
+                                </label>
+                            </li>
+                            <li class="d-inline-block mr-3">
+                                <label class="control control-radio">Checkin
+                                  <input name="rating" value="checkin" type="radio"/>
+                                  <div class="control-indicator"></div>
+                                </label>
+                            </li>
+                            <li class="d-inline-block mr-3">
+                                <label class="control control-radio">Communication
+                                  <input name="rating" value="communication" type="radio"/>
+                                  <div class="control-indicator"></div>
+                                </label>
+                            </li>
+                            <li class="d-inline-block mr-3">
+                                <label class="control control-radio">Location
+                                  <input name="rating" value="location" type="radio"/>
+                                  <div class="control-indicator"></div>
+                                </label>
+                            </li>
+                          </ul>
+                          <br/>
                           <p class="text-dark font-weight-medium mb-3">Property Types</p>
                           <label class="control control-checkbox">All
                               <input onchange="tooglePropertyTypes(this)" type="checkbox"/>
@@ -307,25 +322,6 @@
                                 </label>
                             </li>
                           </ul>
-                          <br/>
-                          <div class="slidersContainer">
-                            <div class="sliderContainer">
-                              <p class="text-dark font-weight-medium mb-3">Number of bathrooms</p>
-                              <div id="bathroomsSlider" class="noUi-target noUi-ltr noUi-horizontal slider"></div>
-                            </div>
-                            <div class="sliderContainer">
-                              <p class="text-dark font-weight-medium mb-3">Number of bedrooms</p>
-                              <div id="bedroomsSlider" class="noUi-target noUi-ltr noUi-horizontal slider"></div>
-                            </div>
-                            <div class="sliderContainer">
-                              <p class="text-dark font-weight-medium mb-3">Number of beds</p>
-                              <div id="bedsSlider" class="noUi-target noUi-ltr noUi-horizontal slider"></div>
-                            </div>
-                            <div class="sliderContainer">
-                              <p class="text-dark font-weight-medium mb-3">Square Metres Range</p>
-                              <div id="squareMetresSlider" class="noUi-target noUi-ltr noUi-horizontal slider"></div>
-                            </div>
-                          </div>
                         <br/>
                         <hr>
                         <div class="submitContainer">

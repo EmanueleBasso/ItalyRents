@@ -185,7 +185,6 @@ function retrievalData()
 
     var amenities = '';
     var allAmenities = document.getElementById('amenities').getElementsByTagName('input');
-    //console.log(Object.values(allTypes));
     Object.values(allAmenities).forEach(amenity => {
         if (amenity.checked)
         {
