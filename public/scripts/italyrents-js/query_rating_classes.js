@@ -125,7 +125,7 @@ function showTable(data)
     }
     else
     {
-        hFirstRow.prepend('<th rowspan="2" class="first-col">Neighbourhood</th>');
+        hFirstRow.prepend('<th rowspan="2" class="first-col">' + selectedCity + '</th>');
         if (data[0] != null)
         {
             for (neighbourhood of data[0])

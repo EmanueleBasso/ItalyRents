@@ -29,6 +29,7 @@
 #table th, #table td
 {
     text-align: center;
+    vertical-align: middle;
 }
 
 .first-col
@@ -39,4 +40,9 @@
     z-index: 5;
     background-color: #fff;
     text-align: right !important;
-  }
+}
+
+#table th[rowspan="2"]
+{
+    vertical-align: bottom;
+}
