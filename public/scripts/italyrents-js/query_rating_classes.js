@@ -3,6 +3,8 @@ var selectedCity;
 var selectedPropertyTypes;
 var ratingClasses = [2, 3, 4, 5, 6, 7, 8, 9, 10];
 
+var propertyColors = ['table-primary', 'table-secondary', 'table-success', 'table-danger', 'table-warning', 'table-info', 'table-light', 'table-active']
+
 function putDataInTheRow(type, row, rowData)
 {
     var propertyTypeIndex = 0;
@@ -73,27 +75,22 @@ function showTable(data)
 {
     // console.log(selectedCity);
     // console.log(selectedPropertyTypes);
-    console.log(data);
+    // console.log(data);
 
     $('#selectedRatingType').html(selectedRatingType.substring(0, 1).toUpperCase() + selectedRatingType.substring(1));
     var thead = $('#thead');
     var hFirstRow = $('<tr></tr>');
     var hSecondRow = $('<tr></tr>');
+    var colorIndex = 0;
     selectedPropertyTypes.forEach(pType => {
-        var pCell = $('<th colspan="9">' + pType + '</th>');
+        var pCell = $('<th colspan="9" class="' + propertyColors[colorIndex] + '">' + pType + '</th>');
         hFirstRow.append(pCell);
         for (var i = 2; i < 11; i++)
         {
-            if (i == 10)
-            {
-                var rCell = $('<th class="bordered">' + i + '</th>');
-            }
-            else
-            {
-                var rCell = $('<th>' + i + '</th>');                
-            }
+            var rCell = $('<th class="' + propertyColors[colorIndex] + '">' + i + '</th>');
             hSecondRow.append(rCell);
         }
+        colorIndex++;
     });
     thead.append(hFirstRow);  
     thead.append(hSecondRow);
@@ -101,7 +98,7 @@ function showTable(data)
     var tbody = $('#tbody');
     if (selectedCity == 'All')
     {
-        hFirstRow.prepend('<th rowspan="2" class="bordered">City</th>');
+        hFirstRow.prepend('<th rowspan="2" class="first-col">City</th>');
         var cities = [];
         for (item of data)
         {
@@ -115,7 +112,7 @@ function showTable(data)
         for (city of cities)
         {
             var cityRow = $('<tr></tr>');
-            cityRow.append('<td>' + city + '</td>');
+            cityRow.append('<td class="first-col">' + city + '</td>');
             while (data[i] == null)
             {
                 i++;
@@ -128,13 +125,13 @@ function showTable(data)
     }
     else
     {
-        hFirstRow.prepend('<th rowspan="2" class="bordered">Neighbourhood</th>');
+        hFirstRow.prepend('<th rowspan="2" class="first-col">Neighbourhood</th>');
         if (data[0] != null)
         {
             for (neighbourhood of data[0])
             {
                 var neighbourhoodRow = $('<tr></tr>');
-                neighbourhoodRow.append('<td>' + neighbourhood._id + '</td>');
+                neighbourhoodRow.append('<td class="first-col">' + neighbourhood._id + '</td>');
                 var neighbourhoodData = neighbourhood.values;
                 neighbourhoodRow = putDataInTheRow('neighbourhood', neighbourhoodRow, neighbourhoodData);
                 tbody.append(neighbourhoodRow);
