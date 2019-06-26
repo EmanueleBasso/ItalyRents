@@ -5,7 +5,7 @@ var ratingClasses = [2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 function putDataInTheRow(type, row, rowData)
 {
-    var pSelectedTypeIndex = 0;
+    var propertyTypeIndex = 0;
     if (type == 'city')
     {
         var j = 1;
@@ -14,14 +14,15 @@ function putDataInTheRow(type, row, rowData)
     {
         var j = 0;
     }
+
     while (j < rowData.length)
     {
-        if (selectedPropertyTypes[pSelectedTypeIndex] != rowData[j].propertyType)
+        if (selectedPropertyTypes[propertyTypeIndex] != rowData[j].propertyType)
         {
             ratingClasses.forEach(e => {
-                row.append('<td>0</td>')
+                row.append('<td>0</td>');
             });
-            pSelectedTypeIndex++;
+            propertyTypeIndex++;
         }
         else
         {
@@ -32,18 +33,37 @@ function putDataInTheRow(type, row, rowData)
             {
                 if (ratingClasses[ratingClassIndex] != classes[k].ratingClass)
                 {
-                    row.append('<td>0</td>')
+                    row.append('<td>0</td>');
                     ratingClassIndex++;
                 }
                 else
                 {
-                    row.append('<td>' + classes[k].count + '</td>')
+                    row.append('<td>' + classes[k].count + '</td>');
                     ratingClassIndex++;
                     k++;
                 }
             }
-            pSelectedTypeIndex++;
+            if (ratingClassIndex != ratingClasses.length)
+            {
+                while(ratingClassIndex < ratingClasses.length)
+                {
+                    row.append('<td>0</td>');
+                    ratingClassIndex ++;
+                }
+            }
+            propertyTypeIndex++;
             j++;
+        }
+    }
+    console.log(propertyTypeIndex, selectedPropertyTypes.length);
+    if (propertyTypeIndex != selectedPropertyTypes.length)
+    {
+        for (var i = propertyTypeIndex; i < selectedPropertyTypes.length; i++)
+        {
+            for (var j = 0; j < ratingClasses.length; j++)
+            {
+                row.append('<td>0</td>');
+            }
         }
     }
     return row;
@@ -66,7 +86,7 @@ function showTable(data)
         {
             if (i == 10)
             {
-                var rCell = $('<th class="lastValue">' + i + '</th>');
+                var rCell = $('<th class="bordered">' + i + '</th>');
             }
             else
             {
@@ -81,7 +101,7 @@ function showTable(data)
     var tbody = $('#tbody');
     if (selectedCity == 'All')
     {
-        hFirstRow.prepend('<th rowspan="2">City</th>');
+        hFirstRow.prepend('<th rowspan="2" class="bordered">City</th>');
         var cities = [];
         for (item of data)
         {
@@ -108,7 +128,7 @@ function showTable(data)
     }
     else
     {
-        hFirstRow.prepend('<th rowspan="2">Neighbourhood</th>');
+        hFirstRow.prepend('<th rowspan="2" class="bordered">Neighbourhood</th>');
         if (data[0] != null)
         {
             for (neighbourhood of data[0])

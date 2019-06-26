@@ -1,0 +1,38 @@
+#tableContainer > div.card, #tableContainer > div.card-default, #tableContainer > div.pb-5
+{
+    margin-bottom: 0em;
+    padding-bottom: 0em !important;
+}
+
+#tableContainer .card-header
+{
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+
+#tableContainer .card-body
+{
+    overflow: auto;
+    height: 40em;
+    padding: 0em;
+}
+
+#table #thead
+{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background: #fff;
+}
+
+#table th, #table td
+{
+    text-align: center;
+}
+
+/* Don't work */
+/* #table th.bordered
+{
+    border-right: 1px solid #dee2e6;
+} */
