@@ -1,3 +1,128 @@
+var selectedRatingType;
+var selectedCity;
+var selectedPropertyTypes;
+var ratingClasses = [2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+function putDataInTheRow(type, row, rowData)
+{
+    var pSelectedTypeIndex = 0;
+    if (type == 'city')
+    {
+        var j = 1;
+    }
+    else
+    {
+        var j = 0;
+    }
+    while (j < rowData.length)
+    {
+        if (selectedPropertyTypes[pSelectedTypeIndex] != rowData[j].propertyType)
+        {
+            ratingClasses.forEach(e => {
+                row.append('<td>0</td>')
+            });
+            pSelectedTypeIndex++;
+        }
+        else
+        {
+            var classes = rowData[j].ratings;
+            var ratingClassIndex = 0;
+            var k = 0;
+            while (k < classes.length)
+            {
+                if (ratingClasses[ratingClassIndex] != classes[k].ratingClass)
+                {
+                    row.append('<td>0</td>')
+                    ratingClassIndex++;
+                }
+                else
+                {
+                    row.append('<td>' + classes[k].count + '</td>')
+                    ratingClassIndex++;
+                    k++;
+                }
+            }
+            pSelectedTypeIndex++;
+            j++;
+        }
+    }
+    return row;
+}
+
+function showTable(data)
+{
+    // console.log(selectedCity);
+    // console.log(selectedPropertyTypes);
+    console.log(data);
+
+    $('#selectedRatingType').html(selectedRatingType.substring(0, 1).toUpperCase() + selectedRatingType.substring(1));
+    var thead = $('#thead');
+    var hFirstRow = $('<tr></tr>');
+    var hSecondRow = $('<tr></tr>');
+    selectedPropertyTypes.forEach(pType => {
+        var pCell = $('<th colspan="9">' + pType + '</th>');
+        hFirstRow.append(pCell);
+        for (var i = 2; i < 11; i++)
+        {
+            if (i == 10)
+            {
+                var rCell = $('<th class="lastValue">' + i + '</th>');
+            }
+            else
+            {
+                var rCell = $('<th>' + i + '</th>');                
+            }
+            hSecondRow.append(rCell);
+        }
+    });
+    thead.append(hFirstRow);  
+    thead.append(hSecondRow);
+
+    var tbody = $('#tbody');
+    if (selectedCity == 'All')
+    {
+        hFirstRow.prepend('<th rowspan="2">City</th>');
+        var cities = [];
+        for (item of data)
+        {
+            if (item != null)
+            {
+                cities.push(item[0]['city_name']);
+            }
+        }
+
+        var i = 0;
+        for (city of cities)
+        {
+            var cityRow = $('<tr></tr>');
+            cityRow.append('<td>' + city + '</td>');
+            while (data[i] == null)
+            {
+                i++;
+            }
+            cityData = data[i];
+            cityRow = putDataInTheRow('city', cityRow, cityData);
+            tbody.append(cityRow);
+            i++;
+        }
+    }
+    else
+    {
+        hFirstRow.prepend('<th rowspan="2">Neighbourhood</th>');
+        if (data[0] != null)
+        {
+            for (neighbourhood of data[0])
+            {
+                var neighbourhoodRow = $('<tr></tr>');
+                neighbourhoodRow.append('<td>' + neighbourhood._id + '</td>');
+                var neighbourhoodData = neighbourhood.values;
+                neighbourhoodRow = putDataInTheRow('neighbourhood', neighbourhoodRow, neighbourhoodData);
+                tbody.append(neighbourhoodRow);
+            }
+        }
+    }
+}
+
 function getData(request)
 {
     $.ajax({
@@ -7,49 +132,48 @@ function getData(request)
         dataType: 'json'
     })
     .done(function(data){
-        console.log(data);
+        var table = `<div class="col-12" id="tableContainer">
+            <div class="card card-default pb-5">
+                <div class="card-header justify-content-center">
+                    <h2 class="text-center" id="selectedRatingType"></h2>
+                </div>
+            <div class="card-body">
+                <table id="table" class="table table-bordered table-striped">
+                    <thead id="thead">
+                    </thead>
+                    <tbody id="tbody">
+                    </tbody>
+                </table>
+            </div>`
+        $('#tableContainer').remove();
+        $('.row').append(table);
 
-        // var chart = `<div class="col-12" id="chart">
-        //     <div class="card card-default pb-5">
-        //         <div class="card-header justify-content-center">
-        //             <h2 class="text-center">Count</h2>
-        //         </div>
-        //         <div class="card-body" style="height: 850px;">
-        //             <canvas id="bar3"></canvas>
-        //             <div id='customLegend' class='customLegend'></div>
-        //         </div>
-        //     </div>
-        // </div>`
-        // $('#chart').remove();
-        // $('.row').append(chart);
-
-        // showChart(data);
-        // stopLoader();
+        showTable(data);
+        stopLoader();
     })
 }
 
 function retrievalData()
 {
-    // startLoader();
+    startLoader();
 
     var request = {}
 
     var city = $('#selectCities').val();
     request['city'] = city;
+    selectedCity = city;
 
-    // selectedPropertyTypes = [];
+    selectedPropertyTypes = [];
     var propertyTypes = '';
     var allTypes = document.getElementById('propertyTypes').getElementsByTagName('input');
-    //console.log(Object.values(allTypes));
     Object.values(allTypes).forEach(type => {
         if (type.checked)
         {
             propertyTypes = propertyTypes + type.name + ',';
-            // selectedPropertyTypes.push(type.name);
+            selectedPropertyTypes.push(type.name);
         }
     });
     request['propertyTypes'] = propertyTypes.substring(0, propertyTypes.length - 1);
-    //console.log(request['propertyTypes']);
 
     var amenities = '';
     var allAmenities = document.getElementById('amenities').getElementsByTagName('input');
@@ -60,7 +184,6 @@ function retrievalData()
         }
     });
     request['amenities'] = amenities.substring(0, amenities.length - 1);
-    //console.log(request['amenities']);
 
     var ratingTypes = document.getElementsByName('rating');
     var i = 0;
@@ -70,11 +193,13 @@ function retrievalData()
         if (ratingTypes[i].checked)
         {
             request['rating'] = ratingTypes[i].value;
+            selectedRatingType = ratingTypes[i].value;
             found = true;
         }
         i++;
     }
 
     console.log(request);
+
     getData(request);
 }
