@@ -20,7 +20,7 @@ function retrievalData(){
 
     $.ajax({
         method: 'POST',
-        url: '/ItalyRents/squareMetresClassesQuery',
+        url: '/ItalyRents/amenityAndPropertyQuery',
         data: request,
         dataType: 'json'
     })

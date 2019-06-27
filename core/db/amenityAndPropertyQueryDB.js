@@ -15,8 +15,6 @@ module.exports = async function(property, amenity, price, rating, mq, sendRespon
 }
 
 async function query(city, property, amenity, price, rating, mq){
-    await sleep(1200)    //  Testing
-
     return new Promise( (resolve, reject) => {
         (async () => {
             connection.db.collection('listings' + city, function(err, collection){
@@ -61,11 +59,12 @@ async function query(city, property, amenity, price, rating, mq){
                 group['$group']['mq']['$' + mq] = '$square_metres'
                 pipeline.push(group)
 
-                console.log(JSON.stringify(pipeline, null, 4))
+                //console.log(JSON.stringify(pipeline, null, 4))
                 collection.aggregate(pipeline).toArray(function(err, docs){
                     if(err) 
                         logger.error(err)
-                    console.log(docs[0])
+                    
+                    //console.log(docs[0])
                     if(docs[0] == undefined){
                         resolve(null)
                     }else{
@@ -77,15 +76,4 @@ async function query(city, property, amenity, price, rating, mq){
             })
         })()
     })
-}
-
-
-
-
-
-//  Testing
-query("Milano","Bed and breakfast","TV","avg", "min", "min")
-//  Testing
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
 }
