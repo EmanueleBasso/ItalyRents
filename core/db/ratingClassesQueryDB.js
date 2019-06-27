@@ -75,6 +75,9 @@ async function query(city_name, show_neighbourhoods, property_type, amenities, r
                             },
                             count: {
                                 $sum : 1
+                            },
+                            price: {
+                                $avg : '$price'
                             }
                         }
                     }
@@ -97,7 +100,21 @@ async function query(city_name, show_neighbourhoods, property_type, amenities, r
                             },
                             rating: {
                                 ratingClass: '$_id.ratingClass',
-                                count: '$count'
+                                count: '$count',
+                                price: {
+                                    $divide: [{
+                                        $subtract: [{
+                                            $multiply: ['$price',100]
+                                        },
+                                        {
+                                            $mod: [{
+                                                $multiply: ['$price',100]
+                                            }, 
+                                            1]
+                                        }
+                                    ]},
+                                    100]
+                                }
                             }
                         }
                     }
@@ -192,6 +209,9 @@ async function query(city_name, show_neighbourhoods, property_type, amenities, r
                             },
                             count: {
                                 $sum : 1
+                            },
+                            price: {
+                                $avg : '$price'
                             }
                         }
                     }
@@ -202,7 +222,21 @@ async function query(city_name, show_neighbourhoods, property_type, amenities, r
                             _id: '$_id.propertyType',
                             rating: {
                                 ratingClass: '$_id.ratingClass',
-                                count: '$count'
+                                count: '$count',
+                                price: {
+                                    $divide: [{
+                                        $subtract: [{
+                                            $multiply: ['$price',100]
+                                        },
+                                        {
+                                            $mod: [{
+                                                $multiply: ['$price',100]
+                                            }, 
+                                            1]
+                                        }
+                                    ]},
+                                    100]
+                                }
                             }
                         }
                     }
@@ -281,10 +315,10 @@ async function query(city_name, show_neighbourhoods, property_type, amenities, r
     })
 }
 
-//  Testing
-/*query("Milano", false, ["Bed and breakfast", "Apartment", "House"],["TV", "Wifi"], "location")
+// //  Testing
+// query("Milano", false, ["Bed and breakfast", "Apartment", "House"],["TV", "Wifi"], "location")
 
-//  Testing
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}*/
+// // Testing
+// function sleep(ms) {
+//     return new Promise(resolve => setTimeout(resolve, ms));
+// }
