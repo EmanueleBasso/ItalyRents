@@ -56,10 +56,10 @@
   <script src="../scripts/italyrents-js/select_all.js"></script>
   <script src="../scripts/italyrents-js/sliders.js"></script>
   <script src="../scripts/italyrents-js/neighbourhoods.js"></script>
-  <script src="../scripts/italyrents-js/query_square_metres_classes.js"></script>
+  <script src="../scripts/italyrents-js/query_amenity_and_property.js"></script>
   <script src="../scripts/italyrents-js/loader.js"></script>
 </head>
-  <body id="body" class="sidebar-fixed sidebar-dark" onload="loadSliders(); initialSelection(); loadNeighbourhoods();">
+  <body id="body" class="sidebar-fixed sidebar-dark" onload="loadSliders(); initialSelection(); loadNeighbourhoods(); retrievalData();">
     <script>
       NProgress.configure({ showSpinner: false });
       NProgress.start();
@@ -157,7 +157,7 @@
                                 <td class="cell_third cell_text">Price&nbsp;:</td>
                                 <td class="cell_fourth">                        
                                   <div class="form-group">
-                                    <select id="price_combo" class="js-example-basic-multiple form-control no_search" name="price">
+                                    <select id="price_combo" class="js-example-basic-multiple form-control no_search" name="price" onchange="retrievalData();">
                                       <option value="avg" selected>Avg</option>
                                       <option value="min">Min</option>
                                       <option value="max">Max</option>
@@ -170,7 +170,7 @@
                               <tr>
                                   <td class="cell_select cell_first">                                    
                                     <div class="form-group">
-                                      <select id="amenity_combo" class="js-example-basic-multiple form-control" name="amenitiy">
+                                      <select id="amenity_combo" class="js-example-basic-multiple form-control" name="amenitiy" onchange="retrievalData();">
                                         <option value="TV" selected>TV</option>
                                         <option value="Wifi">Wifi</option>
                                         <option value="Air_conditioning">Air conditioning</option>
@@ -189,7 +189,7 @@
                                   <td class="cell_third cell_text">Rating&nbsp;:</td>
                                   <td cla>                        
                                     <div class="form-group">
-                                      <select id="rating_combo" class="js-example-basic-multiple form-control no_search" name="rating">
+                                      <select id="rating_combo" class="js-example-basic-multiple form-control no_search" name="rating" onchange="retrievalData();">
                                           <option value="avg" selected>Avg</option>
                                           <option value="min">Min</option>
                                           <option value="max">Max</option>
@@ -201,10 +201,10 @@
                                 <tr>
                                     <td class="cell_void cell_first"></td>
                                     <td class="cell_void cell_second"></td>
-                                    <td class="cell_third cell_text">Mq.&nbsp;:</td>
+                                    <td class="cell_third cell_text">Square Metres&nbsp;:</td>
                                     <td class="cell_fourth">                        
                                       <div class="form-group">
-                                        <select id="mq_combo" class="js-example-basic-multiple form-control no_search" name="mq">
+                                        <select id="mq_combo" class="js-example-basic-multiple form-control no_search" name="mq" onchange="retrievalData();">
                                             <option value="avg" selected>Avg</option>
                                             <option value="min">Min</option>
                                             <option value="max">Max</option>
@@ -226,7 +226,7 @@
                                       <td class="cell_void cell_third"></td>
                                       <td class="cell_select cell_fourth">                                    
                                         <div class="form-group">
-                                          <select id="property_combo" class="js-example-basic-multiple form-control" name="property">
+                                          <select id="property_combo" class="js-example-basic-multiple form-control" name="property" onchange="retrievalData();">
                                             <option value="Apartment" selected>Apartment</option>
                                             <option value="Bed and breakfast">Bed and breakfast</option>
                                             <option value="Boutique hotel">Boutique hotel</option>
