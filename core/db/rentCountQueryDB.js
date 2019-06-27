@@ -3,9 +3,6 @@ const connection = require('./connection')
 
 module.exports = async function(city_name, neighbourhood, property_type, amenities, bathrooms_range, bedrooms_range, beds_range, square_metres_range, sendResponse, res)
 {
-    // numero di case affittate per città, per quartiere e categoria (appartamento, loft, ...), in base ad alcuni servizi, in base al
-    // # bagni e stanze da letto e # letti e mq (range)
-
     if (city_name === 'All')
     {
         await Promise.all([
@@ -31,8 +28,6 @@ module.exports = async function(city_name, neighbourhood, property_type, ameniti
 
 async function query(city_name, neighbourhood, property_type, amenities, bathrooms_range, bedrooms_range, beds_range, square_metres_range)
 {
-    //await sleep(1200)    //  Testing
-
     return new Promise( (resolve, reject) => {
         (async () => {
             connection.db.collection('listings' + city_name, function(err, collection){
@@ -125,7 +120,7 @@ async function query(city_name, neighbourhood, property_type, amenities, bathroo
                 collection.aggregate(pipeline).toArray(function(err, docs){
                     if(err) 
                         logger.error(err)
-                    //console.log(docs)
+
                     if (docs.length == 0)
                     {
                         resolve(null)
@@ -145,11 +140,3 @@ async function query(city_name, neighbourhood, property_type, amenities, bathroo
         })()
     })
 }
-
-/*//  Testing
-query("Milano","BAGGIO",["Bed and breakfast", "Apartment"],["TV", "Wifi"], [1, 3], [1, 3], [1, 3], [50, 70])
-
-//  Testing
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}*/

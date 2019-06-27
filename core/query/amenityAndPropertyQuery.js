@@ -1,6 +1,8 @@
 const amenityAndPropertyQueryDB = require('../db/amenityAndPropertyQueryDB')
 
 module.exports = async function (req, res){
+    //console.log(req.body)
+
     var property = req.body.property
     var amenity = req.body.amenity
     var price = req.body.price

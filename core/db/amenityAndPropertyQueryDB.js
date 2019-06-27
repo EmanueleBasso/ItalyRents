@@ -64,7 +64,6 @@ async function query(city, property, amenity, price, rating, mq){
                     if(err) 
                         logger.error(err)
                     
-                    //console.log(docs[0])
                     if(docs[0] == undefined){
                         resolve(null)
                     }else{

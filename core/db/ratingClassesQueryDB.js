@@ -3,10 +3,6 @@ const connection = require('./connection')
 
 module.exports = async function(city_name, property_type, amenities, rating, sendResponse, res)
 {
-    //in base al tipo di score selzionato mostrare su un grafico il numero di proprietà suddivise per tipo o per quartiere 
-    //o per servizi che cadono nelle classi del punteggio (0, 1, 2, .., 10)
-
-
     if (city_name === 'All')
     {
         await Promise.all([
@@ -32,8 +28,6 @@ module.exports = async function(city_name, property_type, amenities, rating, sen
 
 async function query(city_name, show_neighbourhoods, property_type, amenities, rating)
 {
-    // await sleep(1200)    //  Testing
-
     return new Promise( (resolve, reject) => {
         (async () => {
             connection.db.collection('listings' + city_name, function(err, collection){
@@ -83,15 +77,6 @@ async function query(city_name, show_neighbourhoods, property_type, amenities, r
                     }
                     pipeline.push(group)
                     
-                    // var sort = {
-                    //     $sort: {
-                    //         '_id.neighbourhood': 1,
-                    //         '_id.propertyType': 1,
-                    //         '_id.ratingClass': 1
-                    //     }
-                    // }
-                    // pipeline.push(sort)
-
                     var firstProject = {
                         $project: {
                             _id: {
@@ -292,8 +277,7 @@ async function query(city_name, show_neighbourhoods, property_type, amenities, r
                     if(err) 
                         logger.error(err)
                         
-                    // console.log(JSON.stringify(docs, null, 4)) //Visualizzazione compelta
-                    // console.log(docs) //Visualizzazione compatta
+                    // console.log(JSON.stringify(docs, null, 4)) 
                     if (docs.length == 0)
                     {
                         resolve(null)
@@ -314,11 +298,3 @@ async function query(city_name, show_neighbourhoods, property_type, amenities, r
         })()
     })
 }
-
-// //  Testing
-// query("Milano", false, ["Bed and breakfast", "Apartment", "House"],["TV", "Wifi"], "location")
-
-// // Testing
-// function sleep(ms) {
-//     return new Promise(resolve => setTimeout(resolve, ms));
-// }

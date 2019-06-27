@@ -21,8 +21,6 @@ module.exports = async function(city_name, neighbourhood, property_type, ameniti
 }
 
 async function query(city_name, neighbourhood, property_type, amenities, ratings, rating_type){
-    //await sleep(500)    //  Testing
-
     return new Promise( (resolve, reject) => {
         (async () => {
             connection.db.collection('listings' + city_name, function(err, collection){
@@ -102,17 +100,3 @@ async function query(city_name, neighbourhood, property_type, amenities, ratings
         })()
     })
 }
-
-
-
-
-
-//  Testing
-//query("Milano","BAGGIO",["Bed and breakfast", "Apartment"],["TV", "Wifi"],["accuracy", "communication"],"avg")
-
-//  Testing
-/*
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
-*/

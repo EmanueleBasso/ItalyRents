@@ -12,6 +12,7 @@ function parseRange(stringRange)
 module.exports = async function (req, res)
 {
     //console.log(req.body)
+    
     var city_name = req.body.city
     var neighbourhood = req.body.neighbourhood
     var property_type = req.body.propertyTypes.split(',')
