@@ -5,7 +5,7 @@ var ratingClasses = [2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 var propertyColors = ['table-primary', 'table-secondary', 'table-success', 'table-danger', 'table-warning', 'table-info', 'table-light', 'table-active']
 
-function putDataInTheRow(type, row, rowData)
+function putDataInTheRow(type, rowCount, rowPrice, rowData)
 {
     var propertyTypeIndex = 0;
     if (type == 'city')
@@ -22,7 +22,8 @@ function putDataInTheRow(type, row, rowData)
         if (selectedPropertyTypes[propertyTypeIndex] != rowData[j].propertyType)
         {
             ratingClasses.forEach(e => {
-                row.append('<td>0</td>');
+                rowCount.append('<td>0</td>');
+                rowPrice.append('<td>0&euro;</td>');
             });
             propertyTypeIndex++;
         }
@@ -35,12 +36,14 @@ function putDataInTheRow(type, row, rowData)
             {
                 if (ratingClasses[ratingClassIndex] != classes[k].ratingClass)
                 {
-                    row.append('<td>0</td>');
+                    rowCount.append('<td>0</td>');
+                    rowPrice.append('<td>0&euro;</td>');
                     ratingClassIndex++;
                 }
                 else
                 {
-                    row.append('<td>' + classes[k].count + '</td>');
+                    rowCount.append('<td>' + classes[k].count + '</td>');
+                    rowPrice.append('<td>' + classes[k].price + '&euro;</td>');
                     ratingClassIndex++;
                     k++;
                 }
@@ -49,7 +52,8 @@ function putDataInTheRow(type, row, rowData)
             {
                 while(ratingClassIndex < ratingClasses.length)
                 {
-                    row.append('<td>0</td>');
+                    rowCount.append('<td>0</td>');
+                    rowPrice.append('<td>0&euro;</td>');
                     ratingClassIndex ++;
                 }
             }
@@ -57,18 +61,19 @@ function putDataInTheRow(type, row, rowData)
             j++;
         }
     }
-    console.log(propertyTypeIndex, selectedPropertyTypes.length);
     if (propertyTypeIndex != selectedPropertyTypes.length)
     {
         for (var i = propertyTypeIndex; i < selectedPropertyTypes.length; i++)
         {
             for (var j = 0; j < ratingClasses.length; j++)
             {
-                row.append('<td>0</td>');
+                rowCount.append('<td>0</td>');
+                rowPrice.append('<td>0&euro;</td>');
+
             }
         }
     }
-    return row;
+    return [rowCount, rowPrice];
 }
 
 function showTable(data)
@@ -98,6 +103,7 @@ function showTable(data)
     var tbody = $('#tbody');
     if (selectedCity == 'All')
     {
+        hFirstRow.prepend('<th rowspan="2" class="first-col">Data</th>');
         hFirstRow.prepend('<th rowspan="2" class="first-col">City</th>');
         var cities = [];
         for (item of data)
@@ -111,30 +117,44 @@ function showTable(data)
         var i = 0;
         for (city of cities)
         {
-            var cityRow = $('<tr></tr>');
-            cityRow.append('<td class="first-col">' + city + '</td>');
+            var cityCountRow = $('<tr></tr>');
+            cityCountRow.append('<td rowspan="2" class="first-col">' + city + '</td>');
+            cityCountRow.append('<td class="first-col">Count</td>');
+            var cityPriceRow = $('<tr></tr>');
+            cityPriceRow.append('<td class="first-col">Avg Price</td>');
             while (data[i] == null)
             {
                 i++;
             }
             cityData = data[i];
-            cityRow = putDataInTheRow('city', cityRow, cityData);
-            tbody.append(cityRow);
+            var dataRows = putDataInTheRow('city', cityCountRow, cityPriceRow, cityData);
+            for (var dataRow of dataRows)
+            {
+                tbody.append(dataRow);
+            }
             i++;
         }
     }
     else
     {
+        hFirstRow.prepend('<th rowspan="2" class="first-col">Data</th>');
         hFirstRow.prepend('<th rowspan="2" class="first-col">' + selectedCity + '</th>');
         if (data[0] != null)
         {
             for (neighbourhood of data[0])
             {
-                var neighbourhoodRow = $('<tr></tr>');
-                neighbourhoodRow.append('<td class="first-col">' + neighbourhood._id + '</td>');
+                var neighbourhoodCountRow = $('<tr></tr>');
+                neighbourhoodCountRow.append('<td rowspan="2" class="first-col">' + neighbourhood._id + '</td>');
+                neighbourhoodCountRow.append('<td class="first-col">Count</td>');
+                var neighbourhoodPriceRow = $('<tr></tr>');
+                neighbourhoodPriceRow.append('<td class="first-col">Avg Price</td>');
                 var neighbourhoodData = neighbourhood.values;
-                neighbourhoodRow = putDataInTheRow('neighbourhood', neighbourhoodRow, neighbourhoodData);
-                tbody.append(neighbourhoodRow);
+                var dataRows = putDataInTheRow('neighbourhood', neighbourhoodCountRow, neighbourhoodPriceRow, neighbourhoodData);
+                for (var dataRow of dataRows)
+                {
+                    tbody.append(dataRow);
+                }
+                i++;
             }
         }
     }
@@ -216,7 +236,7 @@ function retrievalData()
         i++;
     }
 
-    console.log(request);
+    // console.log(request);
 
     getData(request);
 }
