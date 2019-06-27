@@ -62,6 +62,26 @@ async function query(city_name, neighbourhood, property_type, amenities, ratings
                     group['$group'][r]['$' + rating_type] = '$review_scores_' + r
                 }
                 pipeline.push(group)
+
+                // Approximation Project
+                var project = {$project: {}}
+                for(r of ratings){
+                    project['$project'][r] =  {
+                        $divide: [{
+                            $subtract: [{
+                                $multiply: ['$' + r, 100]
+                            },
+                            {
+                                $mod: [{
+                                    $multiply: ['$' + r, 100]
+                                }, 
+                                1]
+                            }
+                        ]},
+                        100]
+                    }
+                }
+                pipeline.push(project)
                 
                 //console.log(JSON.stringify(pipeline, null, 4))
                 collection.aggregate(pipeline).toArray(function(err, docs){

@@ -14,12 +14,5 @@ module.exports = async function (req, res){
 }
 
 function sendResponse(result, res){
-    for(var obj of result){
-        for(var prop in obj) {
-            if(!isNaN(obj[prop]))
-                obj[prop] = parseFloat((Math.round(((obj[prop] + 0.00001) * 100)) / 100).toFixed(2))
-        }
-    }
-
     res.json(result)
 }
