@@ -119,9 +119,7 @@ async function query(city_name, neighbourhood, property_type, bathrooms_range, b
                         var filtered_docs = docs.filter(function(value){
                             return value._id != ''
                         })
-                        
-                        //console.log(filtered_docs)
-    
+                            
                         resolve(filtered_docs)
                     }
                 })

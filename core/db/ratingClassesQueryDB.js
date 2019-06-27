@@ -272,12 +272,11 @@ async function query(city_name, show_neighbourhoods, property_type, amenities, r
                     pipeline.push(sortByPropertyType)
                 }
 
-                console.log(JSON.stringify(pipeline, null, 4))
+                //console.log(JSON.stringify(pipeline, null, 4))
                 collection.aggregate(pipeline).toArray(function(err, docs){
                     if(err) 
                         logger.error(err)
-                        
-                    // console.log(JSON.stringify(docs, null, 4)) 
+                    
                     if (docs.length == 0)
                     {
                         resolve(null)

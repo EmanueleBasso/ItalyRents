@@ -134,7 +134,6 @@ async function query(city_name, neighbourhood, property_type, amenities, bathroo
                         docs.splice(0, 0, infoObj)
                         resolve(docs)
                     }
-                    console.log(docs)
                 })
             })
         })()
