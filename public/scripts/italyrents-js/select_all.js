@@ -41,3 +41,9 @@ function toogleRatings(checkBoxAll)
         ratings.find('input').prop("checked", false);
     }
 }
+
+function deselectAll(checkbox, checkBoxAll){
+    if(checkbox.prop("checked") == false){
+        $('#' + checkBoxAll).prop("checked", false)
+    }
+}

@@ -13,6 +13,8 @@
 
   <!-- PLUGINS CSS STYLE -->
   <link href="../styles/plugins/select2/select2.min.css" rel="stylesheet" />
+  <link href="../styles/plugins/nprogress/nprogress.css" rel="stylesheet" />
+  <link href="../styles/plugins/ladda/ladda.min.css" rel="stylesheet" />
   
   <!-- SLEEK CSS -->
   <link id="sleek-css" rel="stylesheet" href="../styles/css/sleek.css" />
@@ -36,11 +38,17 @@
   <!-- NOUISLIDER JS -->
   <script src="../scripts/noUiSlider/nouislider.min.js"></script>
 
+  <script src="../scripts/plugins/nprogress/nprogress.js"></script>
+
   <!-- ITALYRENTS JS --> 
   <script src="../scripts/italyrents-js/query_amenity_and_property.js"></script>
   <script src="../scripts/italyrents-js/loader.js"></script>
 </head>
   <body id="body" class="sidebar-fixed sidebar-dark" onload="retrievalData();">
+    <script>
+      NProgress.configure({ showSpinner: false });
+      NProgress.start();
+    </script>
     <div class="mobile-sticky-body-overlay"></div>
 
     <div class="wrapper">
@@ -254,6 +262,8 @@
 <script src="../scripts/plugins/charts/Chart.min.js"></script>
 <script src="../scripts/plugins/jquery-mask-input/jquery.mask.min.js"></script>
 <script src="../scripts/plugins/select2/js/select2.min.js"></script>
+<script src="../scripts/plugins/ladda/spin.min.js"></script>
+<script src="../scripts/plugins/ladda/ladda.min.js"></script>
 <script src="../scripts/js/sleek.js"></script>
 <script src="../scripts/js/custom.js"></script>
 

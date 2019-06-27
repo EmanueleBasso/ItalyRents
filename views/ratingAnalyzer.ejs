@@ -13,6 +13,8 @@
 
   <!-- PLUGINS CSS STYLE -->
   <link href="../styles/plugins/select2/select2.min.css" rel="stylesheet" />
+  <link href="../styles/plugins/nprogress/nprogress.css" rel="stylesheet" />
+  <link href="../styles/plugins/ladda/ladda.min.css" rel="stylesheet" />
   
   <!-- SLEEK CSS -->
   <link id="sleek-css" rel="stylesheet" href="../styles/css/sleek.css" />
@@ -36,6 +38,8 @@
   <!-- NOUISLIDER JS -->
   <script src="../scripts/noUiSlider/nouislider.min.js"></script>
 
+  <script src="../scripts/plugins/nprogress/nprogress.js"></script>
+
   <!-- ITALYRENTS JS --> 
   <script src="../scripts/italyrents-js/select_all.js"></script>
   <script src="../scripts/italyrents-js/sliders.js"></script>
@@ -44,6 +48,10 @@
   <script src="../scripts/italyrents-js/loader.js"></script>
 </head>
   <body class="sidebar-fixed sidebar-dark" id="body" onload="loadNeighbourhoods(); initialSelection()">
+    <script>
+      NProgress.configure({ showSpinner: false });
+      NProgress.start();
+    </script>
     <div class="mobile-sticky-body-overlay"></div>
 
     <div class="wrapper">
@@ -154,55 +162,55 @@
                     </div>
                     <p class="text-dark font-weight-medium mb-3">Property Types</p>
                     <label class="control control-checkbox">All
-                        <input onchange="tooglePropertyTypes(this)" type="checkbox"/>
+                        <input onchange="tooglePropertyTypes(this)" type="checkbox" id="propertyTypesAll"/>
                         <div class="control-indicator"></div>
                     </label>
                     <ul id="propertyTypes" class="list-unstyled list-inline">
                       <li class="d-inline-block mr-3">
                         <label class="control control-checkbox">Apartment
-                          <input name="Apartment" type="checkbox"/>
+                          <input name="Apartment" type="checkbox" onchange="deselectAll($(this), 'propertyTypesAll')"/>
                           <div class="control-indicator"></div>
                         </label>
                       </li>
                       <li class="d-inline-block mr-3">
                           <label class="control control-checkbox">Bed and breakfast
-                            <input name="Bed and breakfast" type="checkbox"/>
+                            <input name="Bed and breakfast" type="checkbox" onchange="deselectAll($(this), 'propertyTypesAll')"/>
                             <div class="control-indicator"></div>
                           </label>
                       </li>
                       <li class="d-inline-block mr-3">
                         <label class="control control-checkbox">Boutique hotel
-                          <input name="Boutique hotel" type="checkbox"/>
+                          <input name="Boutique hotel" type="checkbox" onchange="deselectAll($(this), 'propertyTypesAll')"/>
                           <div class="control-indicator"></div>
                         </label>
                       </li>
                       <li class="d-inline-block mr-3">
                         <label class="control control-checkbox">Condominium
-                          <input name="Condominium" type="checkbox"/>
+                          <input name="Condominium" type="checkbox" onchange="deselectAll($(this), 'propertyTypesAll')"/>
                           <div class="control-indicator"></div>
                         </label>
                       </li>
                       <li class="d-inline-block mr-3">
                         <label class="control control-checkbox">Hotel
-                          <input name="Hotel"type="checkbox"/>
+                          <input name="Hotel"type="checkbox" onchange="deselectAll($(this), 'propertyTypesAll')"/>
                           <div class="control-indicator"></div>
                         </label>
                       </li>
                       <li class="d-inline-block mr-3">
                           <label class="control control-checkbox">House
-                            <input name="House" type="checkbox"/>
+                            <input name="House" type="checkbox" onchange="deselectAll($(this), 'propertyTypesAll')"/>
                             <div class="control-indicator"></div>
                           </label>
                       </li>
                       <li class="d-inline-block mr-3">
                           <label class="control control-checkbox">Loft
-                            <input name="Loft" type="checkbox"/>
+                            <input name="Loft" type="checkbox" onchange="deselectAll($(this), 'propertyTypesAll')"/>
                             <div class="control-indicator"></div>
                           </label>
                       </li>
                       <li class="d-inline-block mr-3">
                         <label class="control control-checkbox">Villa
-                          <input name="Villa" type="checkbox"/>
+                          <input name="Villa" type="checkbox" onchange="deselectAll($(this), 'propertyTypesAll')"/>
                           <div class="control-indicator"></div>
                         </label>
                       </li>
@@ -210,73 +218,73 @@
                     <br/>
                     <p class="text-dark font-weight-medium mb-3">Amenities</p>
                     <label class="control control-checkbox">All
-                        <input onchange="toogleAmenities(this)" type="checkbox"/>
+                        <input onchange="toogleAmenities(this)" type="checkbox" id="amenitiesAll"/>
                         <div class="control-indicator"></div>
                     </label>
                     <ul id="amenities" class="list-unstyled list-inline">
                       <li class="d-inline-block mr-3">
                         <label class="control control-checkbox">TV
-                          <input name="TV" type="checkbox"/>
+                          <input name="TV" type="checkbox" onchange="deselectAll($(this), 'amenitiesAll')"/>
                           <div class="control-indicator"></div>
                         </label>
                       </li>
                       <li class="d-inline-block mr-3">
                           <label class="control control-checkbox">Wifi
-                            <input name="Wifi" type="checkbox"/>
+                            <input name="Wifi" type="checkbox" onchange="deselectAll($(this), 'amenitiesAll')"/>
                             <div class="control-indicator"></div>
                           </label>
                       </li>
                       <li class="d-inline-block mr-3">
                           <label class="control control-checkbox">Air conditioning
-                            <input name="Air_conditioning" type="checkbox"/>
+                            <input name="Air_conditioning" type="checkbox" onchange="deselectAll($(this), 'amenitiesAll')"/>
                             <div class="control-indicator"></div>
                           </label>
                       </li>
                       <li class="d-inline-block mr-3">
                           <label class="control control-checkbox">Kitchen
-                            <input name="Kitchen" type="checkbox"/>
+                            <input name="Kitchen" type="checkbox" onchange="deselectAll($(this), 'amenitiesAll')"/>
                             <div class="control-indicator"></div>
                           </label>
                       </li>
                       <li class="d-inline-block mr-3">
                           <label class="control control-checkbox">Pets allowed
-                            <input name="Pets_allowed" type="checkbox"/>
+                            <input name="Pets_allowed" type="checkbox" onchange="deselectAll($(this), 'amenitiesAll')"/>
                             <div class="control-indicator"></div>
                           </label>
                       </li>
                       <li class="d-inline-block mr-3">
                           <label class="control control-checkbox">Elevator
-                            <input name="Elevator" type="checkbox"/>
+                            <input  name="Elevator" type="checkbox" onchange="deselectAll($(this), 'amenitiesAll')"/>
                             <div class="control-indicator"></div>
                           </label>
                       </li>
                       <li class="d-inline-block mr-3">
                           <label class="control control-checkbox">Smoking allowed
-                            <input name="Smoking_allowed" type="checkbox"/>
+                            <input name="Smoking_allowed" type="checkbox" onchange="deselectAll($(this), 'amenitiesAll')"/>
                             <div class="control-indicator"></div>
                           </label>
                       </li>
                       <li class="d-inline-block mr-3">
                           <label class="control control-checkbox">Iron
-                            <input name="Iron" type="checkbox"/>
+                            <input name="Iron" type="checkbox" onchange="deselectAll($(this), 'amenitiesAll')"/>
                             <div class="control-indicator"></div>
                           </label>
                       </li>
                       <li class="d-inline-block mr-3">
                           <label class="control control-checkbox">Hair dryer
-                            <input name="Hair_dryer" type="checkbox"/>
+                            <input name="Hair_dryer" type="checkbox" onchange="deselectAll($(this), 'amenitiesAll')"/>
                             <div class="control-indicator"></div>
                           </label>
                       </li>
                       <li class="d-inline-block mr-3">
                           <label class="control control-checkbox">Gym
-                            <input name="Gym" type="checkbox"/>
+                            <input name="Gym" type="checkbox" onchange="deselectAll($(this), 'amenitiesAll')"/>
                             <div class="control-indicator"></div>
                           </label>
                       </li>
                       <li class="d-inline-block mr-3">
                           <label class="control control-checkbox">Washer
-                            <input name="Washer" type="checkbox"/>
+                            <input name="Washer" type="checkbox" onchange="deselectAll($(this), 'amenitiesAll')"/>
                             <div class="control-indicator"></div>
                           </label>
                       </li>
@@ -284,37 +292,37 @@
                     <br/>
                     <p class="text-dark font-weight-medium mb-3">Ratings to show</p>
                     <label class="control control-checkbox">All
-                        <input onchange="toogleRatings(this)" type="checkbox"/>
+                        <input onchange="toogleRatings(this)" type="checkbox" id="ratingsAll"/>
                         <div class="control-indicator"></div>
                     </label>
                     <ul id="ratingsToShow" class="list-unstyled list-inline">
                       <li class="d-inline-block mr-3">
                         <label class="control control-checkbox">Accuracy
-                          <input name="accuracy" type="checkbox"/>
+                          <input name="accuracy" type="checkbox" onchange="deselectAll($(this), 'ratingsAll')"/>
                           <div class="control-indicator"></div>
                         </label>
                       </li>
                       <li class="d-inline-block mr-3">
                           <label class="control control-checkbox">Cleanliness
-                            <input name="cleanliness" type="checkbox"/>
+                            <input name="cleanliness" type="checkbox" onchange="deselectAll($(this), 'ratingsAll')"/>
                             <div class="control-indicator"></div>
                           </label>
                       </li>
                       <li class="d-inline-block mr-3">
                           <label class="control control-checkbox">Checkin
-                            <input name="checkin" type="checkbox"/>
+                            <input name="checkin" type="checkbox" onchange="deselectAll($(this), 'ratingsAll')"/>
                             <div class="control-indicator"></div>
                           </label>
                       </li>
                       <li class="d-inline-block mr-3">
                           <label class="control control-checkbox">Communication
-                            <input name="communication" type="checkbox"/>
+                            <input name="communication" type="checkbox" onchange="deselectAll($(this), 'ratingsAll')"/>
                             <div class="control-indicator"></div>
                           </label>
                       </li>
                       <li class="d-inline-block mr-3">
                           <label class="control control-checkbox">Location
-                            <input name="location" type="checkbox"/>
+                            <input name="location" type="checkbox" onchange="deselectAll($(this), 'ratingsAll')"/>
                             <div class="control-indicator"></div>
                           </label>
                       </li>
@@ -372,6 +380,8 @@
 <script src="../scripts/plugins/charts/Chart.min.js"></script>
 <script src="../scripts/plugins/jquery-mask-input/jquery.mask.min.js"></script>
 <script src="../scripts/plugins/select2/js/select2.min.js"></script>
+<script src="../scripts/plugins/ladda/spin.min.js"></script>
+<script src="../scripts/plugins/ladda/ladda.min.js"></script>
 <script src="../scripts/js/sleek.js"></script>
 <script src="../scripts/js/custom.js"></script>
 
