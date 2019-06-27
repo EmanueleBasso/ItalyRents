@@ -11,8 +11,6 @@ var venezia = ['Alberoni', 'Burano', 'Cannaregio', 'Castello', 'Dorsoduro', 'Giu
 
 function loadNeighbourhoods()
 {
-    /*var value = citiesSelectBox.value;
-    var neighbourhoodsSelectBox = (document.getElementsByName('neighbourhood'))[0];*/
     var citiesSelectBox = $('#selectCities');
     var value = citiesSelectBox.val();
     var neighbourhoodsSelectBox = $('#selectNeighbourhoods');

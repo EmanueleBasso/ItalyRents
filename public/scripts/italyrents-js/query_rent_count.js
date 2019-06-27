@@ -1,13 +1,7 @@
 var selectedPropertyTypes;
 
-// function hideChart()
-// {
-//     $('#chart').hide();
-// }
-
 function showChart(data)
 {
-    // console.log(selectedPropertyTypes);
     var colors = ['rgb(76, 132, 255)', 'rgb(204, 0, 255)', 'rgb(254, 196, 0)', 'rgb(41, 204, 151)', 'rgb(150, 0, 47)',
     'rgb(153, 153, 102)', 'rgb(0, 153, 51)'];
     
@@ -25,9 +19,7 @@ function showChart(data)
     {
         cities[0] = data[0][0]['neighbourhood'] + ' (' + cities[0] + ')';
     }
-    // console.log(cities);
 
-    // var max_value = 0;
     var datasets = [];
     var k = 0;
     for (var i = 0; i < cities.length; i++)
@@ -47,12 +39,6 @@ function showChart(data)
             {
                 if(data[k][j]['_id'] == pType)
                 {  
-                    // var value = data[i][j]['count'];
-                    // if (value >= max_value)
-                    // {
-                    //     max_value = value;
-                    // }
-                    // cityObj['data'].push(value);
                     cityObj['data'].push(data[k][j]['count']);
                     found = true;
                 }
@@ -73,8 +59,6 @@ function showChart(data)
         datasets.push(cityObj);
         k++;
     }
-    // console.log(datasets);
-    // console.log(max_value);
 
     var acquisition3 = document.getElementById("bar3");
     if (acquisition3 !== null)
@@ -106,7 +90,6 @@ function showChart(data)
                             },
                             ticks: {
                                 beginAtZero: false,
-                                // stepSize: 500,
                                 fontColor: "#8a909d",
                                 fontFamily: "Roboto, sans-serif"
                             }
@@ -117,7 +100,6 @@ function showChart(data)
             }
         });
         document.getElementById("customLegend").innerHTML = acChart3.generateLegend();
-        // $('#chart').show();
     }
 }
 
@@ -130,8 +112,6 @@ function getData(request)
         dataType: 'json'
     })
     .done(function(data){
-        // console.log(data);
-
         var chart = `<div class="col-12" id="chart">
             <div class="card card-default pb-5">
                 <div class="card-header justify-content-center">
@@ -153,7 +133,6 @@ function getData(request)
 
 function retrievalData()
 {
-    // hideChart();
     startLoader();
 
     var request = {}
@@ -172,7 +151,6 @@ function retrievalData()
     selectedPropertyTypes = [];
     var propertyTypes = '';
     var allTypes = document.getElementById('propertyTypes').getElementsByTagName('input');
-    //console.log(Object.values(allTypes));
     Object.values(allTypes).forEach(type => {
         if (type.checked)
         {
@@ -181,7 +159,6 @@ function retrievalData()
         }
     });
     request['propertyTypes'] = propertyTypes.substring(0, propertyTypes.length - 1);
-    //console.log(request['propertyTypes']);
 
     var amenities = '';
     var allAmenities = document.getElementById('amenities').getElementsByTagName('input');
@@ -192,7 +169,6 @@ function retrievalData()
         }
     });
     request['amenities'] = amenities.substring(0, amenities.length - 1);
-    //console.log(request['amenities']);
 
     var propNames = ['bathrooms', 'bedrooms', 'beds', 'squareMetres'];
     var regex = /[^0-9]/g;
@@ -202,6 +178,5 @@ function retrievalData()
         request[propName] = strValues;
     })
 
-    //console.log(request);
     getData(request);
 }

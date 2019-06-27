@@ -45,8 +45,6 @@ function retrievalData(){
         dataType: 'json'
     })
     .done(function( data ) {
-        //console.log(data)
-
         var graphic = `<div class="col-12" id="graphic">
             <div class="card card-default pb-5">
                 <div class="card-header justify-content-center">

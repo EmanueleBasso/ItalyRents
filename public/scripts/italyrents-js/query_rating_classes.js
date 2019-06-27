@@ -78,10 +78,6 @@ function putDataInTheRow(type, rowCount, rowPrice, rowData)
 
 function showTable(data)
 {
-    // console.log(selectedCity);
-    // console.log(selectedPropertyTypes);
-    // console.log(data);
-
     $('#selectedRatingType').html(selectedRatingType.substring(0, 1).toUpperCase() + selectedRatingType.substring(1));
     var thead = $('#thead');
     var hFirstRow = $('<tr></tr>');
@@ -236,8 +232,6 @@ function retrievalData()
         }
         i++;
     }
-
-    // console.log(request);
 
     getData(request);
 }

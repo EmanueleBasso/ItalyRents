@@ -25,8 +25,6 @@ function retrievalData(){
         dataType: 'json'
     })
     .done(function( data ) {
-        //console.log(data)
-
         showData(data)
                 
         stopLoader()
