@@ -1,4 +1,3 @@
-const logger = require('loglevel')
 const rentCountQueryDB = require('../db/rentCountQueryDB')
 
 function parseRange(stringRange)

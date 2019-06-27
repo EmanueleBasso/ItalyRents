@@ -1,4 +1,3 @@
-const logger = require('loglevel')
 const ratingClassesQueryDB = require('../db/ratingClassesQueryDB')
 
 module.exports = async function (req, res)

@@ -34,6 +34,4 @@ app.post(config.basepath + '/' + 'ratingClassesQuery', ratingClassesQuery)
 app.get(config.basepath + '/' + 'squareMetresClasses', basicRoutes.functionSquareMetresClasses)
 app.post(config.basepath + '/' + 'squareMetresClassesQuery', squareMetresClassesQuery)
 
-app.use(basicRoutes.functionInvalidPath)      // Default path
-
 app.listen(config.port, config.host, () => logger.info('[System] App ItalyRents deployed at: http://' + config.host + ':' + config.port + config.basepath))
