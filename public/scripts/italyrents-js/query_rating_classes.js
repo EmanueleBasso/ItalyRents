@@ -103,7 +103,7 @@ function showTable(data)
     var tbody = $('#tbody');
     if (selectedCity == 'All')
     {
-        hFirstRow.prepend('<th rowspan="2" class="first-col">Data</th>');
+        hFirstRow.prepend('<th rowspan="2" class="second-col">Data</th>');
         hFirstRow.prepend('<th rowspan="2" class="first-col">City</th>');
         var cities = [];
         for (item of data)
@@ -119,9 +119,9 @@ function showTable(data)
         {
             var cityCountRow = $('<tr></tr>');
             cityCountRow.append('<td rowspan="2" class="first-col">' + city + '</td>');
-            cityCountRow.append('<td class="first-col">Count</td>');
+            cityCountRow.append('<td class="second-col">Count</td>');
             var cityPriceRow = $('<tr></tr>');
-            cityPriceRow.append('<td class="first-col">Avg Price</td>');
+            cityPriceRow.append('<td class="second-col">Avg Price</td>');
             while (data[i] == null)
             {
                 i++;
@@ -137,7 +137,7 @@ function showTable(data)
     }
     else
     {
-        hFirstRow.prepend('<th rowspan="2" class="first-col">Data</th>');
+        hFirstRow.prepend('<th rowspan="2" class="second-col">Data</th>');
         hFirstRow.prepend('<th rowspan="2" class="first-col">' + selectedCity + '</th>');
         if (data[0] != null)
         {
@@ -145,9 +145,9 @@ function showTable(data)
             {
                 var neighbourhoodCountRow = $('<tr></tr>');
                 neighbourhoodCountRow.append('<td rowspan="2" class="first-col">' + neighbourhood._id + '</td>');
-                neighbourhoodCountRow.append('<td class="first-col">Count</td>');
+                neighbourhoodCountRow.append('<td class="second-col">Count</td>');
                 var neighbourhoodPriceRow = $('<tr></tr>');
-                neighbourhoodPriceRow.append('<td class="first-col">Avg Price</td>');
+                neighbourhoodPriceRow.append('<td class="second-col">Avg Price</td>');
                 var neighbourhoodData = neighbourhood.values;
                 var dataRows = putDataInTheRow('neighbourhood', neighbourhoodCountRow, neighbourhoodPriceRow, neighbourhoodData);
                 for (var dataRow of dataRows)
@@ -186,6 +186,7 @@ function getData(request)
         $('.row').append(table);
 
         showTable(data);
+        fixSecondCol();
         stopLoader();
     })
 }

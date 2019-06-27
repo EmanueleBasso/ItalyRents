@@ -42,6 +42,16 @@
     text-align: right !important;
 }
 
+.second-col
+{
+    position: -webkit-sticky;
+    position: sticky;
+    left: 0;
+    z-index: 5;
+    background-color: #fff;
+    text-align: right !important;
+}
+
 #table th[rowspan="2"]
 {
     vertical-align: bottom;
