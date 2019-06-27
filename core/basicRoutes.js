@@ -17,3 +17,7 @@ exports.functionRatingClasses = async function (req, res){
 exports.functionSquareMetresClasses = async function (req, res){
     res.render('squareMetresClasses')
 }
+
+exports.functionAboutPage = async function (req, res){
+    res.render('about')
+}

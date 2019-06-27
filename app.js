@@ -10,7 +10,7 @@ const amenityAndPropertyQuery = require('./core/query/amenityAndPropertyQuery')
 
 const app = express()
 
-logger.setLevel('TRACE', false)
+logger.setLevel('INFO', false)
 
 app.set('view engine', 'ejs')
 
@@ -33,5 +33,7 @@ app.post(config.basepath + '/' + 'ratingClassesQuery', ratingClassesQuery)
 
 app.get(config.basepath + '/' + 'squareMetresClasses', basicRoutes.functionSquareMetresClasses)
 app.post(config.basepath + '/' + 'squareMetresClassesQuery', squareMetresClassesQuery)
+
+app.get(config.basepath + '/' + 'about', basicRoutes.functionAboutPage)
 
 app.listen(config.port, config.host, () => logger.info('[System] App ItalyRents deployed at: http://' + config.host + ':' + config.port + config.basepath))

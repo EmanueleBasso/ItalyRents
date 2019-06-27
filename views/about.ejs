@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Italy Rents</title>
+
+  <!-- GOOGLE FONTS -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500|Poppins:400,500,600,700|Roboto:400,500" rel="stylesheet"/>
+  <link href="https://cdn.materialdesignicons.com/3.0.39/css/materialdesignicons.min.css" rel="stylesheet" />
+
+  <!-- PLUGINS CSS STYLE -->
+  <link href="../styles/plugins/nprogress/nprogress.css" rel="stylesheet" />
+  <link href="../styles/plugins/ladda/ladda.min.css" rel="stylesheet" />
+  
+  <!-- SLEEK CSS -->
+  <link id="sleek-css" rel="stylesheet" href="../styles/css/sleek.css" />
+
+  <!-- ITALYRENTS CSS -->
+  <link href="../styles/italyrents-css/fixed_styles.css" rel="stylesheet" />
+  <link href="../styles/italyrents-css/about_page.css" rel="stylesheet" />
+
+  <!-- FAVICON -->
+  <link href="../images/favicon.png" rel="shortcut icon" />
+
+  <script src="../scripts/plugins/nprogress/nprogress.js"></script>
+</head>
+  <body id="body" class="sidebar-fixed sidebar-dark">
+    <script>
+      NProgress.configure({ showSpinner: false });
+      NProgress.start();
+    </script>
+    <div class="mobile-sticky-body-overlay"></div>
+
+    <div class="wrapper">
+      
+              <!--
+          ====================================
+          ——— LEFT SIDEBAR WITH FOOTER
+          =====================================
+        -->
+        <aside class="left-sidebar bg-sidebar">
+          <div id="sidebar" class="sidebar sidebar-with-footer">
+            <!-- Aplication Brand -->
+            <div class="app-brand">
+              <a id="sidebar-toggler" class="sidebar-toggle" href="javascript:void(0)">
+				        <svg
+                  class="brand-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  preserveAspectRatio="xMidYMid"
+                  width="30"
+                  height="33"
+                  viewBox="0 0 30 33"
+                >
+                  <g fill="none" fill-rule="evenodd">
+                    <path
+                      class="logo-fill-blue"
+                      fill="#7DBCFF"
+                      d="M0 4v25l8 4V0zM22 4v25l8 4V0z"
+                    />
+                    <path class="logo-fill-white" fill="#FFF" d="M11 4v25l8 4V0z" />
+                  </g>
+                </svg>
+                <span class="brand-name">Italy Rents Menu</span>
+              </a>
+            </div>
+            <!-- begin sidebar scrollbar -->
+            <div class="sidebar-scrollbar">
+              <!-- sidebar menu -->
+              <ul class="nav sidebar-inner" id="sidebar-menu">               
+                  <li  class="has-sub expand" >
+                    <a class="sidenav-item-link" href="/ItalyRents/rentCount">
+                      <i class="mdi mdi-chart-bar"></i>
+                      <span class="nav-text">Rent Count</span>
+                    </a>
+                  </li>
+                  <li  class="has-sub expand" >
+                    <a class="sidenav-item-link" href="">
+                      <i class="mdi mdi-table-large"></i>
+                      <span class="nav-text">Amenity & Property</span>
+                    </a>
+                  </li>
+                  <li  class="has-sub expand" >
+                    <a class="sidenav-item-link" href="/ItalyRents/ratingAnalyzer">
+                      <i class="mdi mdi-chart-bar"></i>
+                      <span class="nav-text">Rating Analyzer</span>
+                    </a>
+                  </li>
+                  <li  class="has-sub expand" >
+                    <a class="sidenav-item-link" href="/ItalyRents/ratingClasses">
+                      <i class="mdi mdi-table-large"></i>
+                      <span class="nav-text">Rating Classes</span>
+                    </a>
+                  </li>
+                  <li  class="has-sub expand" >
+                    <a class="sidenav-item-link" href="/ItalyRents/squareMetresClasses">
+                      <i class="mdi mdi-chart-pie"></i>
+                      <span class="nav-text">Square Metres Classes</span>
+                    </a>
+                  </li>
+                  <hr class="separator" />
+                  <li class="has-sub active expand" >
+                    <a class="sidenav-item-link" href="">
+                      <i class="mdi mdi-information"></i>
+                      <span class="nav-text">About</span>
+                    </a>
+                  </li>
+              </ul>
+            </div>
+          </div>
+        </aside>
+
+      <div class="page-wrapper">
+        <div class="content-wrapper">
+          <div class="content">						
+            <div class="row">
+							<div class="col-12">
+								<div class="card card-default">
+                  <div class="card-header card-header-border-bottom">
+                    <div class="card-body">
+                        <h2>About</h2>
+                        <br/>
+                        <br/>
+                        <p>
+                          The application <b>Italy Rents</b> has been developed by Emanuele Basso and Andrea Mogavero as
+                          course project for the exam
+                          <i>Basi di Dati II</i> of <i>University of Salerno</i>.
+                          The aim of the application is to interact with a typical MongoDB database.
+                          <br/><br/>
+                          The application <b>Italy Rents</b> is non-profit and open source.
+                          <br/><br/>
+                          The site uses <a href="https://github.com/tafcoder/sleek-dashboard" target="_blank">Sleek Dashboard Bootstrap Template</a> by
+                          <b><a href="http://www.iamabdus.com/" target="_blank">Abdus</a></b>.
+                          <br/><br/>
+                          &copy; Copyright Sleek Dashboard Bootstrap Template by Abdus:
+                          <div id="copyright">
+                            MIT License
+                            <br/><br/>
+                            Copyright (c) 2018 TAF Coder
+                            <br/><br/>
+                            Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+                            <br/><br/>
+                            The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+                            <br/><br/>
+                            THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+                          </div>
+                        </p> 
+                    </div>
+                </div>
+              </div>
+						</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+<script src="../scripts/plugins/jquery/jquery.min.js"></script>
+<script src="../scripts/plugins/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="../scripts/plugins/slimscrollbar/jquery.slimscroll.min.js"></script>
+<script src="../scripts/plugins/charts/Chart.min.js"></script>
+<script src="../scripts/plugins/jquery-mask-input/jquery.mask.min.js"></script>
+<script src="../scripts/plugins/select2/js/select2.min.js"></script>
+<script src="../scripts/plugins/ladda/spin.min.js"></script>
+<script src="../scripts/plugins/ladda/ladda.min.js"></script>
+<script src="../scripts/js/sleek.js"></script>
+<script src="../scripts/js/custom.js"></script>
+
+<script src="../scripts/italyrents-js/amenity_and_property_page.js"></script>
+  </body>
+</html>
