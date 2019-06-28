@@ -15,7 +15,7 @@ function showChart(data)
         }
     }
 
-    if (data.length == 1 && data[0][0]['neighbourhood'] != 'All')
+    if (data.length == 1 && data[0] != null && data[0][0]['neighbourhood'] != 'All')
     {
         cities[0] = data[0][0]['neighbourhood'] + ' (' + cities[0] + ')';
     }
